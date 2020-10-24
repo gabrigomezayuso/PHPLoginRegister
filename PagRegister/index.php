@@ -48,7 +48,7 @@ session_start();
                     <h3>Iniciar sesión</h3>
                     <div class="form-group">
                         <label>Nombre de usuario</label>
-                        <input type="email" class="form-control" name="email_signin" id="email_signin" />
+                        <input type="text" class="form-control" name="user_signin" id="user_signin" />
                     </div>
 
                     <div class="form-group">
@@ -59,10 +59,10 @@ session_start();
                                 if($_SERVER["REQUEST_METHOD"] == "POST") {
                                 // username and password sent from form 
                                 
-                                $myusername = mysqli_real_escape_string($con,$_POST['email_signin']);
+                                $myusername = mysqli_real_escape_string($con,$_POST['user_signin']);
                                 $mypassword = mysqli_real_escape_string($con,$_POST['password_signin']); 
                                 
-                                $sql = "SELECT email FROM usuarios WHERE email = '$myusername' and password = '$mypassword'";
+                                $sql = "SELECT username FROM usuarios WHERE username = '$myusername' and password = '$mypassword'";
                                 $result = mysqli_query($con,$sql);
                                 $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
                                 $count = mysqli_num_rows($result);
@@ -70,9 +70,9 @@ session_start();
                                 // If result matched $myusername and $mypassword, table row must be 1 row
                                     
                                 if($count == 1) { 
-                                    $_SESSION["email_signin"]=$myusername;
+                                    $_SESSION["user_signin"]=$myusername;
                                     
-                                    header("Location: /menu_profesor.php");
+                                    header("Location: /welcome.php");
                                     die();  
                                     
                                     // echo '<a href="menu_profesor.php">Acceder al menu</a>'; 

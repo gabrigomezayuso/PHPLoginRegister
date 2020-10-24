@@ -25,7 +25,8 @@
 					//Parámetros que vienen del POST
 					$firstname=$_POST["firstname"];
 					$lastname=$_POST["lastname"];
-					$email=$_POST["email"];
+					$mail=$_POST["mail"];
+					$username=$_POST["username"];
 					$mobilenumber=$_POST["mobilenumber"];
 					$password=$_POST["password"];
 
@@ -51,7 +52,7 @@
 				}
 
 				$consulta=mysqli_query($con,"insert into usuarios values 
-				('$firstname','$lastname','$email','$mobilenumber','$password')");
+				('$firstname','$lastname','$mail','$username','$mobilenumber','$password')");
 
 				if(!$consulta)
 				{
@@ -59,7 +60,8 @@
 				}
 				else
 				{
-						echo "<strong>¡Felicidades!</strong>, te has regsitrado con éxito.";
+					header("Location: /index.php");
+
 				}
 
 

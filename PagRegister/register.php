@@ -22,7 +22,6 @@
                     <div class="form-group">
                         <label>Nombre</label>
                         <input type="text" class="form-control" name="firstname" id="firstName" required maxlength="30" />
-
                     </div>
 
                     <div class="form-group">
@@ -32,7 +31,12 @@
 
                     <div class="form-group">
                         <label>Mail</label>
-                        <input type="email" class="form-control" name="email" id="email" required maxlength="30" />
+                        <input type="email" class="form-control" name="mail" id="mail" required maxlength="30" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nombre de usuario</label>
+                        <input type="text" class="form-control" name="username" id="username" required maxlength="30" />
                     </div>
 
                     <div class="form-group">
