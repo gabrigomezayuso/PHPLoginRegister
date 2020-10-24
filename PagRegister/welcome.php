@@ -1,4 +1,5 @@
 <?php
+require_once("controlSession.php");
 session_start();
 $myusername=$_SESSION["user_signin"];
 ?>
@@ -18,7 +19,7 @@ $myusername=$_SESSION["user_signin"];
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/form-control.css">
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="dist/css/adminlte.css">
 
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -43,10 +44,10 @@ to get the desired effect
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item">
-        <a href="welcome.php" class="nav-link">Inicio</a>
+        <a href="welcome.php" class="nav-link active">Inicio</a>
       </li>
       <li class="nav-item">
-        <a href="#" class="nav-link">Crear lista</a>
+        <a href="/crearLista.php" class="nav-link">Crear lista</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="/logout.php" class="nav-link">Salir</a>
@@ -56,7 +57,7 @@ to get the desired effect
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-gray elevation-4">
+  <aside class="main-sidebar sidebar-dark-gray">
     <!-- Brand Logo -->
     <a href="welcome.php" class="brand-link">
       <img src="dist\img\logo.png" alt="Logo" class="brand-image img-circle"
@@ -125,68 +126,41 @@ to get the desired effect
       <div class="container-fluid">
         <div class="row">
           <!-- <div class="col-lg-6"> -->
+                  <div class="App">
+                      <div class="vertical-center">
+                      <a href="crearLista.php"><img class="imgevento elevation-4" src="dist/img/JUEVES.PNG" alt="Jueves Tontos!" width="600"></a>
+                          <style>
+                            .imgevent{
+                            width: 450px;
+                            transition: transform .2s; /* Animation */
+                            margin: auto;
+                            display: block;
+                            transition: all .3s;
+                            border-radius: 20px;
+                            }
 
-          <div class="App">
-            <div class="vertical-center">
-             <div class="inner-block">          
-              <div class="card">
-                <div class="card-header border-0">
-                  <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Crea una lista</h3>               
-                  </div>
-                </div>
-                <div class="card-body">
-                <form action="lista_ok.php" method="post">
-                      <div class="form-group">
-                          <label>Nombre</label>
-                          <input type="text" class="form-control" name="nameList" id="nameList" required maxlength="30" />
-                      </div>
+                            .imgevent:hover{
+                              transform: scale(1.1);
+                            }
 
-                      <div class="form-group">
-                          <label>Acompañantes</label>
-                          <input type="number" class="form-control" name="acomp" id="acomp" required maxlength="30" />
+                          </style>
                       </div>
+                  </div> 
 
-                      <div class="form-group">
-                          <label>Tipo</label>
-                          <br>
-                          <input type="radio" class="" name="normal" id="normal"/>
-                          <label>Normal: 8€+copa</label>
-                          <br>
-                          <input type="radio" name="vip" id="vip"/>
-                          <label>VIP: 15€+copa</label>
+                  <div class="App">
+                      <div class="vertical-center">
+                        <img class="imgevento elevation-4" src="dist/img/VIERNES.PNG" alt="ETE SEECH!" width="600">
                       </div>
-                      <label for="start">Día</label>
-                      <input type="date" id="start" name="trip-start" value="2022-07-22">
-                      <br>
-                      <br>
-                      <button type="submit" name="submit" id="submit" class="btn btn-outline-dark btn-lg btn-block">
-                      Enviar
-                      </button>
-                  </form>
-                </div>
-              </div> 
-              <div class="card">
-                <div class="card-header border-0">
-                  <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Ventas</h3>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <div class="d-flex">
-                    <p class="d-flex flex-column">
-                      <span class="text-bold text-lg">23 listas</span>
-                    </p>
-                    <p class="ml-auto d-flex flex-column text-right">
-                      <span class="text-success">
-                        <i class="fas fa-arrow-up"></i> 68 personas
-                      </span>
-                      <span class="text-muted">Este fin de semana</span>
-                    </p>
-                  </div>
-                </div>
-                </div>
-              </div>
+                  </div> 
+
+                  <div class="App">
+                      <div class="vertical-center">
+                        <img class="imgevento elevation-4" src="dist/img/sabado.PNG" alt="Regaeeton Classics" width="600">
+                      </div>
+                  </div> 
+
+
+              
 
           </div>
             </div>
