@@ -68,22 +68,11 @@ $myusername=$_SESSION["user_signin"];
                           <label>Acompañantes</label>
                           <input type="number" class="form-control" name="acomp" id="acomp" required maxlength="30" />
                       </div>
-<!-- 
-                      <div class="form-group">
-                          <label>Tipo</label>
-                          <br>
-                          <input type="radio" class="" name="type" id="1"/>
-                          <label>Normal: 8€+copa</label>
-                          <br>
-                          <input type="radio" name="type" id="2"/>
-                          <label>VIP: 15€+copa</label>
-                      </div> -->
-
                       <label for="start">Día</label>
-                      <br>
+                        <br>
                       <input type="date" id="fecha" name="fecha" value="2022-07-22">
-                      <br>
-                      <br>
+                        <br>
+                        <br>
                       <button type="submit" name="submit" id="submit" class="btn btn-outline-dark btn-lg btn-block">
                       Enviar
                       </button>

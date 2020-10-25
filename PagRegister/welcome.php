@@ -88,9 +88,9 @@ to get the desired effect
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./historial.php" class="nav-link">
+                <a href="listas.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Historial</p>
+                  <p>Listas</p>
                 </a>
               </li>
             </ul>

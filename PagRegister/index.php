@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Iniciar Sesión</title>
     <!-- jQuery + Bootstrap JS -->
@@ -68,21 +69,25 @@ session_start();
                                 $count = mysqli_num_rows($result);
                                 
                                 // If result matched $myusername and $mypassword, table row must be 1 row
-                                    
-                                if($count == 1) { 
-                                    $_SESSION["user_signin"]=$myusername;
-                                    
-                                    header("Location: /welcome.php");
-                                    die();  
-                                    
-                                    // echo '<a href="menu_profesor.php">Acceder al menu</a>'; 
-                                    
-                                    }else {
-                                    echo  "<td align=centre>Tu nombre de usuario o contraseña son invalidos</td>";
-                                }
-                                }
-                        ?>
-                    </div>
+                                  ?>
+                                  <div class="invalid">
+                                        <?php
+                                                if($count == 1) { 
+                                                    $_SESSION["user_signin"]=$myusername;
+                                                    
+                                                    header("Location: /welcome.php");
+                                                    die();  
+                                                    
+                                                    // echo '<a href="menu_profesor.php">Acceder al menu</a>'; 
+                                                    
+                                                    }else {
+                                                    echo  "Tu nombre de usuario o contraseña son invalidos";
+                                                }
+                                                }
+                                        ?>
+                                  </div>  
+                                
+                    
 
                     <button type="submit" name="login" id="sign_in"
                         class="btn btn-outline-dark btn-lg btn-block">Iniciar sesión</button>
