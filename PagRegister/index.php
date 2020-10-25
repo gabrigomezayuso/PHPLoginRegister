@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="dist\img\logo.png"/>
+    <link rel="icon" type="image/png" href="dist\img\logo.png"/>
     <title>Iniciar Sesión</title>
     <!-- jQuery + Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -89,8 +91,7 @@ session_start();
                                 
                     
 
-                    <button type="submit" name="login" id="sign_in"
-                        class="btn btn-outline-dark btn-lg btn-block">Iniciar sesión</button>
+                    <button type="submit" name="login" id="sign_in" class="btn btn-outline-dark btn-lg btn-block">Iniciar sesión</button>
                         </form>
                     <br>
                 <form action="/register.php" method="post">

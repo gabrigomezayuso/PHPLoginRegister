@@ -49,6 +49,9 @@ to get the desired effect
       <li class="nav-item">
         <a href="/crearLista.php" class="nav-link">Crear lista</a>
       </li>
+      <li class="nav-item">
+        <a href="/listas.php" class="nav-link">Listas</a>
+      </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="/logout.php" class="nav-link">Salir</a>
       </li>
@@ -129,21 +132,6 @@ to get the desired effect
                   <div class="App">
                       <div class="vertical-center">
                       <a href="crearLista.php"><img class="imgevento elevation-4" src="dist/img/JUEVES.PNG" alt="Jueves Tontos!" width="600"></a>
-                          <style>
-                            .imgevent{
-                            width: 450px;
-                            transition: transform .2s; /* Animation */
-                            margin: auto;
-                            display: block;
-                            transition: all .3s;
-                            border-radius: 20px;
-                            }
-
-                            .imgevent:hover{
-                              transform: scale(1.1);
-                            }
-
-                          </style>
                       </div>
                   </div> 
 

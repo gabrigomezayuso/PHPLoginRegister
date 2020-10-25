@@ -17,6 +17,8 @@ $myusername=$_SESSION["user_signin"];
   <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
   <link rel="stylesheet" href="dist/css/form-control.css">
+  <link rel="icon" type="image/png" href="dist\img\logo.png"/>
+  <link rel="icon" type="image/png" href="dist\img\logo.png"/>
 
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlteform.css">
@@ -33,17 +35,16 @@ $myusername=$_SESSION["user_signin"];
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item">
-        <a href="welcome.php" class="nav-link">Inicio</a>
+        <a href="welcome.php" class="nav-link active">Inicio</a>
       </li>
       <li class="nav-item">
-        <a href="crearLista.php" class="nav-link active">Crear lista</a>
+        <a href="/crearLista.php" class="nav-link">Crear lista</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="/logout.php" class="nav-link">Salir</a>
+      <li class="nav-item">
+        <a href="/listas.php" class="nav-link">Listas</a>
       </li>
     </ul>
-  </nav>
-
+    </nav>
 <br>
 <br>
 <br>

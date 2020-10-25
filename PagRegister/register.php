@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Registrar</title>
+    <link rel="icon" type="image/png" href="dist\img\logo.png"/>
+    <link rel="icon" type="image/png" href="dist\img\logo.png"/>
     <!-- jQuery + Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -50,9 +52,11 @@
                         title="Debe contener al menos un número y una letra mayúscula y minúscula, y un máximo de 30" required maxlength="30" />
                     </div>
 
-                    <button type="submit" name="submit" id="submit" class="btn btn-outline-dark btn-lg btn-block">
-                        Registrar
-                    </button>
+                    <button type="submit" name="submit" id="submit" class="btn btn-outline-dark btn-lg btn-block">Registrar</button>
+                </form>
+                <br>
+                <form action="/index.php" method="post">
+                    <button type="submit" name="login" id="sign_in" class="btn btn-outline-dark btn-lg btn-block">Iniciar sesión</button>
                 </form>
             </div>
         </div>
