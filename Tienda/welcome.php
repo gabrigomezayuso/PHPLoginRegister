@@ -1,5 +1,5 @@
 <?php
-require_once("controlSession.php");
+require_once("control/controlSession.php");
 $myusername=$_SESSION["user_signin"];
 ?>
 

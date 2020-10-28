@@ -1,9 +1,3 @@
-<?php
-    require_once("controlSession.php");
-    session_start();
-    $myusername=$_SESSION["user_signin"];
-?>
-
 <!doctype html>
 <html lang="es">
 
@@ -12,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" type="image/png" href="dist\img\logo.png"/>
-    <link rel="icon" type="image/png" href="dist\img\logo.png"/>
-    <title>Registrar</title>
+	<link rel="icon" type="image/png" href="https://images.vexels.com/media/users/3/157462/isolated/preview/88fbf3285773faa1142cbc625b810f40-mobile-online-shopping-icon-by-vexels.png"/>
+    <title>Registrar evento</title>
     <!-- jQuery + Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -25,21 +18,26 @@
     <div class="App"> 
         <div class="vertical-center">
             <div class="inner-block">
+                
+					<?php
 
-                <?php
+							header("Content-Type: text/html;charset=utf-8");
 
-                    header("Content-Type: text/html;charset=utf-8");
+								//Parámetros que vienen del POST
+                                $foto=$_POST["fotoEvento"];
+                                $nombre=$_POST["nombreEvento"];
+                                $fecha=$_POST["fechaEvento"];
+                                $edad=$_POST["edadEvento"];
+                                $precio=$_POST["precioEvento"];
+								$artista=$_POST["artistaEvento"];
+								$animacion=$_POST["animacionEvento"];
 
-                        //Parámetros que vienen del POST
-                        $nombreCliente=$_POST["nombreCliente"];
-                        $acomp=$_POST["acomp"];
-                        $fecha=$_POST["fecha"];
 
-                        //Parámetros de conexión
-                        $servidor="localhost";
-                        $usuario="root";
-                        $contraseña="usbw";
-                        $bd="test";
+								//Parámetros de conexión
+								$servidor="localhost";
+								$usuario="root";
+								$contraseña="usbw";
+								$bd="tienda";
 
 
                     //realizamos la conexión
@@ -55,16 +53,16 @@
                         $_SESSION["con"]=$con;
                     }
 
-                    $consulta=mysqli_query($con,"insert into listas values 
-                    ('$myusername','$nombreCliente','$acomp','$fecha')");
+                    $consulta=mysqli_query($con,"insert into eventos values 
+                    ('$foto','$nombre','$fecha','$edad','$precio','$artista','$animacion')");
 
                     if(!$consulta)
                     {
-                        die("Error en la consulta");
+                        echo "Error en la consulta";
                     }
                     else
                     {
-                        header("Location: /welcome.php");
+                        header("Location: /admin.php");
 
                     }
 
@@ -72,6 +70,9 @@
 
 
                 ?>
+					<br>
+					<br>
+					<input type="button" value="Volver atràs" onclick="history.back()" class="btn btn-outline-dark btn-lg btn-block" >
 
             </div>
         </div>
@@ -80,3 +81,4 @@
 </body>
 
 </html>
+

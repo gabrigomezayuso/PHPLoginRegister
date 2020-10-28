@@ -1,6 +1,13 @@
 <?php
-require_once("controlSession.php");
+require_once("control/controlSession.php");
 $myusername=$_SESSION["user_signin"];
+$servidor="localhost";
+$usuario="root";
+$contraseña="usbw";
+$bd="tienda";
+
+//realizamos la conexión
+$con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 ?>
 <!doctype html>
 <html lang="es">
@@ -52,8 +59,44 @@ $myusername=$_SESSION["user_signin"];
     <div class="content">
       <div class="container-fluid">
         <div class="row">
+
+        <?php
+                                        $consulta = "SELECT * FROM eventos";
+                                        $ejecutarConsulta = mysqli_query($con, $consulta);
+                                        $verFilas = mysqli_num_rows($ejecutarConsulta);
+                                        $fila = mysqli_fetch_array($ejecutarConsulta);
+
+                                        if(!$ejecutarConsulta){
+                                            echo"Error en la consulta";
+                                        }else{
+                                            if($verFilas<1){
+                                                echo"Sin registros";
+                                            }else{
+                                              echo'
+                                              ';
+                                                for($i=0; $i<=$fila; $i++){
+                                                    echo'
+                                                      <div class="App">
+                                                        <div class="vertical-center">
+                                                          <a href="crearLista.php"><img class="imgevento elevation-4" src="dist\img\JUEVES.png" alt="'.$fila[1].'" width="600"></a>
+                                                        </div>
+                                                      </div> 
+                                                    <br>
+                                                    ';
+                                                    $fila = mysqli_fetch_array($ejecutarConsulta);
+
+                                                }
+                                                echo'
+                                                </div>
+                                                ';
+
+                                            }
+                                        }
+
+
+                                    ?>
           <!-- <div class="col-lg-6"> -->
-                  <div class="App">
+                  <!-- <div class="App">
                       <div class="vertical-center">
                       <a href="crearLista.php"><img class="imgevento elevation-4" src="dist/img/JUEVES.PNG" alt="Jueves Tontos!" width="600"></a>
                       </div>
@@ -69,8 +112,7 @@ $myusername=$_SESSION["user_signin"];
                       <div class="vertical-center">
                         <img class="imgevento elevation-4" src="dist/img/sabado.PNG" alt="Regaeeton Classics" width="600">
                       </div>
-                  </div> 
-          </div>
+                  </div>  -->
         </div>
       </div>
     </div>

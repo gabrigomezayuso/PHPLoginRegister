@@ -71,7 +71,7 @@
 												
 												else {
 												$consulta=mysqli_query($con,"insert into usuarios values 
-												('$firstname','$lastname','$mail','$username','$mobilenumber','$password')");
+												('$firstname','$lastname','$mail','$username','$mobilenumber','$password',2)");
 								
 												if(!$consulta)
 												{

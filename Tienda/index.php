@@ -65,28 +65,47 @@ session_start();
                                 
                                 $myusername = mysqli_real_escape_string($con,$_POST['user_signin']);
                                 $mypassword = mysqli_real_escape_string($con,$_POST['password_signin']); 
-                                
-                                $sql = "SELECT username FROM usuarios WHERE username = '$myusername' and password = '$mypassword'";
+                                $rol = 1;
+
+                                $sql = "SELECT username , password , rol_id FROM usuarios WHERE username = '$myusername' and password = '$mypassword'";
                                 $result = mysqli_query($con,$sql);
                                 $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
                                 $count = mysqli_num_rows($result);
                                 
+
                                 // If result matched $myusername and $mypassword, table row must be 1 row
                                   ?>
                                   <div class="invalid">
                                         <?php
                                                 if($count == 1) { 
-                                                    $_SESSION["user_signin"]=$myusername;
+
+                                                    if($row['rol_id']==2){
+                                                        $_SESSION["user_signin"]=$myusername;
+                                                        $_SESSION["rol"]=2;
+
+                                                        header("Location: /admin.php");
+                                                        die();  
+                                                    }
                                                     
-                                                    header("Location: /welcome.php");
-                                                    die();  
+                                                    if($row['rol_id']==1){
+                                                        $_SESSION["user_signin"]=$myusername;
+                                                        $_SESSION["rol"]=1;
+
+                                                        header("Location: /welcome.php");
+                                                        die();  
+                                                    }
+
                                                     
                                                     // echo '<a href="menu_profesor.php">Acceder al menu</a>'; 
                                                     
-                                                    }else {
+                                                }
+
+                                                
+                                                else {
                                                     echo  "Tu nombre de usuario o contraseña son invalidos";
                                                 }
-                                                }
+                                            }
+                                                
                                         ?>
                                   </div>  
                                 
