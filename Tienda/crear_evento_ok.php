@@ -54,7 +54,7 @@
                     }
 
                     $consulta=mysqli_query($con,"insert into eventos values 
-                    ('$foto','$nombre','$fecha','$edad','$precio','$artista','$animacion')");
+                    ('$foto','$nombre','$fecha','$edad','$precio','$artista','$animacion','null')");
 
                     if(!$consulta)
                     {

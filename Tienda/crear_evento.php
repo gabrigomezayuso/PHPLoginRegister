@@ -1,7 +1,7 @@
 <?php
 require_once("control/controlSessionAdmin.php");
 $myusername=$_SESSION["user_signin"];
-$tipoUsuario=$_SESSION["tipoUsuario"];
+$tipoUsuario=$_SESSION["rol"];
 ?>
 
 <!doctype html>
@@ -22,6 +22,8 @@ $tipoUsuario=$_SESSION["tipoUsuario"];
 
 <body>
 
+<br>
+<br>
     <div class="App">
         <div class="vertical-center">
             <div class="inner-block">
@@ -69,9 +71,16 @@ $tipoUsuario=$_SESSION["tipoUsuario"];
 
                     <button type="submit" name="submit" id="submit" class="btn btn-outline-dark btn-lg btn-block">Registrar evento</button>
                 </form>
+
             </div>
+            <br>
+            <br>
         </div>
+
     </div>
+
+    
+
 
 </body>
 

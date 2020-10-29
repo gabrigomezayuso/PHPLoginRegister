@@ -82,6 +82,8 @@ session_start();
                                                     if($row['rol_id']==2){
                                                         $_SESSION["user_signin"]=$myusername;
                                                         $_SESSION["rol"]=2;
+                                                                    
+
 
                                                         header("Location: /admin.php");
                                                         die();  

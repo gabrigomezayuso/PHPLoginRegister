@@ -26,6 +26,8 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
     <title>Comprar</title>
 </head>
 
+ <body>
+
 <div class="wrapper">
   <nav class="navbar navbar-expand-lg navbar-dark bg-info">
     <a class="navbar-brand" href="/welcome.php">
@@ -48,9 +50,10 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
           </li>
         </ul>
         <div class="form-inline my-2 my-lg-0">
-        <input type="button" value="<?php echo $myusername?>" onclick="window.location.href='/perfil.php'" class="btn btn-outline-light" >
+        <input type="button" value="<?php echo $myusername?>" onclick="window.location.href='/profile.php'" class="btn btn-outline-light" >
         </div>
       </div>
+
   </nav>
 
 
@@ -76,8 +79,9 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
                           echo'
                             <div class="App">
                               <div class="vertical-center">
-                                <a href="crearLista.php"><img class="imgevento elevation-4" src="'.$fila[0].'" alt="'.$fila[1].'" width="600"></a>
-                              </div>
+                                <a href="product_page.php?page=product&id='.$fila[7].'"><img class="imgevento elevation-4" src="'.$fila[0].'" alt="'.$fila[1].'" width="600"></a>
+
+                                </div>
                             </div> 
                           <br>
                           ';
@@ -93,6 +97,7 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 
 
           ?>
+                <br>
       </div>
     </div>
   </div>
