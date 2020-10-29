@@ -51,10 +51,10 @@
                         title="Debe contener al menos un número y una letra mayúscula y minúscula, y un máximo de 30" required maxlength="30" />
                     </div>
 
-                    <button type="submit" name="submit" id="submit" class="btn btn-outline-dark btn-lg btn-block">Registrar</button>
+                    <button type="submit" name="submit" id="submit" class="btn btn-outline-info btn-lg btn-block">Registrar</button>
                 </form>
                 <br>
-                <input type="button" value="Iniciar sesión" onclick="window.location.href='/index.php'" class="btn btn-outline-dark btn-lg btn-block" >
+                <input type="button" value="Iniciar sesión" onclick="window.location.href='/index.php'" class="btn btn-outline-info btn-lg btn-block" >
             </div>
         </div>
     </div>

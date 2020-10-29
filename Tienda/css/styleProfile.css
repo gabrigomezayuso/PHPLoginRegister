@@ -43,7 +43,6 @@
   .vertical-center {
     display: flex;
     text-align: left;
-    justify-content: center;
     flex-direction: column;
   }
 

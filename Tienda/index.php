@@ -111,10 +111,10 @@ session_start();
                                 
                     
 
-                    <button type="submit" name="login" id="sign_in" class="btn btn-outline-dark btn-lg btn-block">Iniciar sesión</button>
+                    <button type="submit" name="login" id="sign_in" class="btn btn-outline-info btn-lg btn-block">Iniciar sesión</button>
                     <br>
                 </form>
-                <input type="button" value="Registrar" onclick="window.location.href='/register.php'" class="btn btn-outline-dark btn-lg btn-block" >
+                <input type="button" value="Registrar" onclick="window.location.href='/register.php'" class="btn btn-outline-info btn-lg btn-block" >
             </div>
         </div>
     </div>
