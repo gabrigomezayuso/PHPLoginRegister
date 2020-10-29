@@ -2,9 +2,11 @@
     box-sizing: border-box;
   }
   
+  
   body {
-    font-weight: 400;
-    background-color: #EEEFF4;
+    /* font-weight: 400;
+    background: url('/dist/img/bck.png') #41d3bd no-repeat center center scroll;
+    background-size: 100% 100%; */
   }
   
   body,
@@ -16,7 +18,7 @@
   }
   
   .navbar {
-    background: #2c2c2c !important;
+    background-color: transparent;
     width: 100%;
   }
   

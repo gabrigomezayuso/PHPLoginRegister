@@ -21,7 +21,7 @@ session_start();
 					$servidor="localhost";
 					$usuario="root";
 					$contraseña="usbw";
-					$bdd="test";
+					$bdd="tienda";
 
 
 				//realizamos la conexión

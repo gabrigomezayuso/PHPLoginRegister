@@ -28,7 +28,7 @@ $myusername=$_SESSION["user_signin"];
   <div class="container h-100">
     <div class="d-flex h-100 text-center align-items-center">
       <div class="w-100 text-white">
-        <h1 class="display-3">Clickfy</h1>
+      <a href="crearLista.php"><img class="imgevento elevation-4" src="dist\img\logo.png" alt="Clickfy" width="300"></a>
         <p class="lead mb-0">¡Un click y a disfrutar!</p>
         <br>
         <input type="button" value="Comprar" onclick="window.location.href='/comprar.php'" class="butt btn-outline-light" >
