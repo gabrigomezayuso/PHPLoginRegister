@@ -15,21 +15,20 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="dist/css/adminlite.css">
     <link rel="stylesheet" href="dist/css/form-control.css">
     <link rel="stylesheet" href="dist/css/adminlte.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.vexels.com/media/users/3/157462/isolated/preview/88fbf3285773faa1142cbc625b810f40-mobile-online-shopping-icon-by-vexels.png"/>
+    
+    
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <title>Comprar</title>
 </head>
 
- <body>
-
-<div class="wrapper">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-info  fixed-top">
     <a class="navbar-brand" href="/welcome.php">
         <img src="/dist/img/logo.png" width="110" alt="">
       </a>
@@ -55,8 +54,15 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
       </div>
 
   </nav>
+</header>
+
+ <body>
+
+<div class="wrapper bg-light">
 
 
+<br>
+<br>
   <div class="content-wrapper">
     <div class="content">
       <div class="container-fluid">
