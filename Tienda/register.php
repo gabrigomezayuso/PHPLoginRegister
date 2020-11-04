@@ -30,6 +30,15 @@
                         <input type="text" class="form-control" name="lastname" id="lastName" required maxlength="30" />
                     </div>
 
+                    
+                    <div class="form-group">
+                        <label>Sexo</label><br>
+                        <input type="radio" class="" name="sex"  value="hombre" required />
+                        <label for="sex">Hombre</label>
+                        <input type="radio" class="" name="sex"  value="mujer" required />
+                        <label for="sex">Mujer</label>
+                    </div>
+
                     <div class="form-group">
                         <label>Mail</label>
                         <input type="email" class="form-control" name="mail" id="mail" required maxlength="30" />

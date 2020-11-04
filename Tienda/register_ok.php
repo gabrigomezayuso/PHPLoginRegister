@@ -26,6 +26,7 @@
 								//Parámetros que vienen del POST
 								$firstname=$_POST["firstname"];
 								$lastname=$_POST["lastname"];
+								$sexo=$_POST["sex"];
 								$mail=$_POST["mail"];
 								$username=$_POST["username"];
 								$mobilenumber=$_POST["mobilenumber"];
@@ -57,7 +58,7 @@
 							// username and password sent from form 
 							
 							
-							$sql = "SELECT mail FROM usuarios WHERE mail = '$mail'";
+							$sql = "SELECT mail, username FROM usuarios WHERE mail = '$mail' or username = '$username'";
 							$result = mysqli_query($con,$sql);
 							$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 							$count = mysqli_num_rows($result);
@@ -65,13 +66,13 @@
 							
 							// If result matched $myusername and $mypassword, table row must be 1 row
 											if($count == 1) { 
-												echo  "Tu correo ya está registrado.";
+												echo  "El correo o nombre de usuario ya está registrado.";
 											
 												}
 												
 												else {
 												$consulta=mysqli_query($con,"insert into usuarios values 
-												('$firstname','$lastname','$mail','$username','$mobilenumber','$password',2)");
+												('$firstname','$lastname', '$sexo','$mail','$username','$mobilenumber','$password',1,'https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg','')");
 								
 												if(!$consulta)
 												{

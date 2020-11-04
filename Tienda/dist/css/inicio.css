@@ -6,7 +6,7 @@
 }
 /* CHECKED STYLES */
 [type=radio]:checked + i {
-  outline: 2px solid #f00;
+color: #24e2ff;
 }
 .transicion{
   animation:opac 1.8s
@@ -474,4 +474,10 @@ p {
   background: none;
   border: 0;
   color: #00424d;
+}
+
+.bottom-icon-disabled{
+  background: none;
+  border: 0;
+  color: #24e2ff;
 }

@@ -41,7 +41,7 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <title>Comprar</title>
+    <title>Bienvenido/a! <?php echo $myusername?></title>
 </head>
 
 
@@ -97,7 +97,7 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
                 }
 
                 if($tipoBusqueda == 'club'){
-                    $query = $mysqli -> query ("SELECT * FROM locales WHERE nombre_local like '%lit%'");
+                    $query = $mysqli -> query ("SELECT * FROM locales WHERE nombre_local like '%$busqueda%'");
                     while ($valores = mysqli_fetch_array($query)) {
                       echo '
                         <a href="product_page.php?page=product&id='.$valores[1].'"><img class="imgevento elevation-4" src="https://dediscoteca.com/wp-content/uploads/2020/01/81225622_158057418938498_1631533027777576960_o.jpg" alt="'.$valores[2].'" width="600"></a>
@@ -113,7 +113,7 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
       </div>
   </div>
 
-  <nav id="topNav" class="navbar fixed-bottom navbar-toggleable-sm navbar-inverse bg-inverse">
+  <nav id="topNav" class="navbar fixed-bottom navbar-sm navbar-inverse bg-inverse">
 
     <button onclick="window.location.href='/inicio.php'" class="form-inline butIzq fas fa-home bottom-icon"></button>
     <button onclick="window.location.href=''" class="form-inline butIzq fas fa-search bottom-icon-actived"></button>

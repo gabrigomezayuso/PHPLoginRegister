@@ -39,7 +39,7 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <title>Comprar</title>
+    <title>Bienvenido/a! <?php echo $myusername?></title>
 </head>
 
 
@@ -72,11 +72,13 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 
               <div class="App">
                 <div class="vertical-center">
+                  
                   <?php
+                  
                     $query = $mysqli -> query ("SELECT *, e.id_local, l.id_local, l.id_ciudad, c.id_ciudad, l.id_ciudad FROM eventos e , locales l, ciudades c WHERE e.id_local=l.id_local AND l.id_ciudad=c.id_ciudad AND c.nombre_ciudad = '$busqueda' ORDER BY fecha ASC");
                     while ($valores = mysqli_fetch_array($query)) {
                       echo '
-                                        <a href="product_page.php?page=product&id='.$valores[7].'"><img class="imgevento elevation-4" src="'.$valores[0].'" alt="'.$valores[1].'" width="600"></a>
+                                        <a href="product_page.php?page=product&id='.$valores[9].'"><img class="imgevento elevation-4" src="'.$valores[0].'" alt="'.$valores[1].'" width="600"></a>
                       ';
                     }
                   ?>
@@ -99,7 +101,7 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
                           $query = $mysqli -> query ("SELECT * FROM eventos WHERE dest = 1 ORDER BY 'fecha' ASC");
                           while ($valores = mysqli_fetch_array($query)) {
                             echo '
-                                              <a href="product_page.php?page=product&id='.$valores[7].'"><img class="imgevento elevation-4" src="'.$valores[0].'" alt="'.$valores[1].'" width="600"></a>
+                                              <a href="product_page.php?page=product&id='.$valores[9].'"><img class="imgevento elevation-4" src="'.$valores[0].'" alt="'.$valores[1].'" width="600"></a>
                             ';
                           }
                         ?>
