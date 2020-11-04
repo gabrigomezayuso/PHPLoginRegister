@@ -54,7 +54,7 @@
                     <button type="submit" name="submit" id="submit" class="btn btn-outline-info btn-lg btn-block">Registrar</button>
                 </form>
                 <br>
-                <input type="button" value="Iniciar sesión" onclick="window.location.href='/index.php'" class="btn btn-outline-info btn-lg btn-block" >
+                <input type="button" value="Iniciar sesión" onclick="window.location.href='/login.php'" class="btn btn-outline-info btn-lg btn-block" >
             </div>
         </div>
     </div>

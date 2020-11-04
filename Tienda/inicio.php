@@ -6,6 +6,9 @@ $usuario="root";
 $contraseña="usbw";
 $bd="tienda";
 
+$mysqli = new mysqli('localhost', 'root', 'usbw', 'tienda');
+
+
 //realizamos la conexión
 $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 ?>
@@ -34,7 +37,7 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 
 
 <header>
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-info  fixed-top">
+  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-info  fixed-top">
     <a class="navbar-brand" href="/welcome.php">
         <img src="/dist/img/logo.png" width="110" alt="">
       </a>
@@ -61,7 +64,7 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
   </nav> -->
 
   <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
-    <a class="navbar-brand mx-auto" href="welcome.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
+    <a class="navbar-brand mx-auto" href="index.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
   </nav>
 
 
@@ -84,75 +87,62 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 <body class="transicion">
   <div class="hide-scroll">
       <div class="viewport">
-          ...
+
+        <div class="sec1">
+
+          
+              <div class="container h-100">
+                <div class="d-flex justify-content-center h-100">
+                  <div class="searchbar">
+                  <form action="" method="get">
+                    <input class="search_input" type="text" name="busqueda" placeholder="Ciudad">
+                    <button type="submit" class="fas fa-search search_icon"></button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <br>
+              <br>
+              <hr class="style1">
+              <h3>Eventos destacados</h3>
+              <hr class="style1">
 
 
-  <div class="sec1">
-
-    <br>
-    <br>
-        <div class="container h-100">
-          <div class="d-flex justify-content-center h-100">
-            <div class="searchbar">
-              <input class="search_input" type="text" name="" placeholder="Ciudad">
-              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <br>
-        <br>
-        <hr class="style1">
-        <h3>Eventos destacados</h3>
-        <hr class="style1">
+              <div class="content">
+                <div class="container-fluid">
+                  <div class="row">
 
 
-        <div class="content">
-          <div class="container-fluid">
-            <div class="row">
-              <?php
-                  $consulta = "SELECT * FROM eventos";
-                  $ejecutarConsulta = mysqli_query($con, $consulta);
-                  $verFilas = mysqli_num_rows($ejecutarConsulta);
-                  $fila = mysqli_fetch_array($ejecutarConsulta);
+            <?php
 
-                  if(!$ejecutarConsulta){
-                      echo"Error en la consulta";
-                  }else{
-                      if($verFilas<1){
-                          echo"Sin registros";
-                      }else{
-                        echo'
-                        ';
-                          for($i=0; $i<=$fila; $i++){
-                              echo'
-                                <div class="App">
-                                  <div class="vertical-center">
-                                    <a href="product_page.php?page=product&id='.$fila[7].'"><img class="imgevento elevation-4" src="'.$fila[0].'" alt="'.$fila[1].'" width="600"></a>
-
-                                    </div>
-                                </div> 
-                              <br>
-                              ';
-                              $fila = mysqli_fetch_array($ejecutarConsulta);
-
-                          }
-                          echo'
-                          </div>
-                          ';
-
-                      }
-                  }
-
+              if (isset($_GET['busqueda'])) {
+                $busqueda = $_GET['busqueda'];
+              } else {
+                // Simple error to display if the id wasn't specified
+                die ('¡No hay eventos en la zona!');
+              }
 
               ?>
-                    <br>
+
+          <div class="App">
+            <div class="vertical-center">
+                    <?php
+                      $query = $mysqli -> query ("SELECT *, e.id_local, l.id_local, l.id_ciudad, c.id_ciudad, l.id_ciudad FROM eventos e , locales l, ciudades c WHERE e.id_local=l.id_local AND l.id_ciudad=c.id_ciudad AND c.nombre_ciudad = '$busqueda'");
+                      while ($valores = mysqli_fetch_array($query)) {
+                        echo '
+                                          <a href="product_page.php?page=product&id='.$valores[7].'"><img class="imgevento elevation-4" src="'.$valores[0].'" alt="'.$valores[1].'" width="600"></a>
+                        ';
+                      }
+                    ?>
+                  </div>
+                </div> 
+              </div>
+            </div>
         </div>
+
+
       </div>
-  </div>
-
-
-  </div>
   </div>
   <footer class="main-footer">
       <strong>Copyright &copy; 2020 <a href="http://dejavugroup.es">DéjàVú</a>.</strong>
