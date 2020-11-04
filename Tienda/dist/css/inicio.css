@@ -5,7 +5,7 @@
   height: 0;
 }
 /* CHECKED STYLES */
-[type=radio]:checked {
+[type=radio]:checked + i {
   outline: 2px solid #f00;
 }
 .transicion{
