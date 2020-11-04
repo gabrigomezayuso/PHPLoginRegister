@@ -16,9 +16,11 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 <title>Bienvenido/a! <?php echo $myusername?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="dist/css/inicio.css">
     <link rel="stylesheet" href="css/styleProfile.css">
     <link rel="stylesheet" href="dist/css/form-control.css">
     <link rel="stylesheet" href="dist/css/adminlte.css">
+    <script src="https://kit.fontawesome.com/90704118d5.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.vexels.com/media/users/3/157462/isolated/preview/88fbf3285773faa1142cbc625b810f40-mobile-online-shopping-icon-by-vexels.png"/>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -26,35 +28,15 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<header>
+  <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
+    <a class="navbar-brand mx-auto" href="index.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
+  </nav>
+</header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-        <a class="navbar-brand" href="/welcome.php">
-            <img src="dist/img/logo.png" width="110" alt="">
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-    
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="/comprar.php">Comprar</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/carrito.php">Carrito</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/logout.php">Cerrar sesión</a>
-              </li>
-            </ul>
-            <div class="form-inline my-2 my-lg-0">
-            <input type="button" value="<?php echo $myusername?>" onclick="window.location.href='/profile.php'" class="btn btn-light" >
-            </div>
-          </div>
-      </nav>
+<body class="transicion">
 
-    <div class="content-wrapper">
+    <div class="sec1">
       
     <br>
     <br>
@@ -71,7 +53,7 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" name="avatar" id="inputGroupFile01">
+                        <!-- <input type="file" name="avatar" id="inputGroupFile01"> -->
                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                       </div>
                     </div>
@@ -158,7 +140,20 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
     <br>
     <br>
     <br>
-</div>
+  
+    
+
+    </div>
+
+
+    <nav id="topNav" class="navbar fixed-bottom navbar-toggleable-sm navbar-inverse bg-inverse">
+      <button onclick="window.location.href='/inicio.php'" class="form-inline butIzq fas fa-home bottom-icon"></button>
+      <button onclick="window.location.href='/search.php'" class="form-inline butIzq fas fa-search bottom-icon"></button>
+      <a class="navbar-brand mx-auto" href="index.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
+      <button onclick="window.location.href='/entradas.php'" class="form-inline butDer fas fa-ticket-alt bottom-icon"></button>
+      <button onclick="window.location.href=''" class="form-inline butDer fas fa-user bottom-icon-actived"></button>
+      </form>
+      </nav>
     <footer class="main-footer">
         <strong>Copyright &copy; 2020 <a href="http://dejavugroup.es">DéjàVú</a>.</strong>
         All rights reserved.

@@ -62,7 +62,7 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
                 <div class="d-flex justify-content-center h-100">
                   <div class="searchbar">
                   <form action="" method="get">
-                    <input class="search_input" type="text" name="busqueda" placeholder="Ciudad">
+                    <input class="search_input" type="text" name="busqueda" placeholder="<?php echo $busqueda; ?>">
                     <button type="submit" class="fas fa-search search_icon"></button>
                     </form>
                   </div>
@@ -84,39 +84,13 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
               </div> 
 
 
-
-              <div class="content">
-                <div class="container-fluid">
-                  <div class="row">
-
-                    
-                    <div class="App">
-                      <div class="vertical-center">
-                        <div class="main-title">
-                        <h3>Eventos destacados</h3>
-                        </div>
-                        <?php
-                          $query = $mysqli -> query ("SELECT * FROM eventos WHERE dest = 1 ORDER BY 'fecha' ASC");
-                          while ($valores = mysqli_fetch_array($query)) {
-                            echo '
-                                              <a href="product_page.php?page=product&id='.$valores[7].'"><img class="imgevento elevation-4" src="'.$valores[0].'" alt="'.$valores[1].'" width="600"></a>
-                            ';
-                          }
-                        ?>
-                      </div>
-                    </div> 
-                  </div>
-                </div>
-              </div>
-
-
       </div>
   </div>
 
   <nav id="topNav" class="navbar fixed-bottom navbar-toggleable-sm navbar-inverse bg-inverse">
 
-    <button onclick="window.location.href=''" class="form-inline butIzq fas fa-home bottom-icon-actived"></button>
-    <button onclick="window.location.href='/search.php'" class="form-inline butIzq fas fa-search bottom-icon"></button>
+    <button onclick="window.location.href='/inicio.php'" class="form-inline butIzq fas fa-home bottom-icon"></button>
+    <button onclick="window.location.href=''" class="form-inline butIzq fas fa-search bottom-icon-actived"></button>
     <a class="navbar-brand mx-auto" href="index.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
     <button onclick="window.location.href='/entradas.php'" class="form-inline butDer fas fa-ticket-alt bottom-icon"></button>
     <button onclick="window.location.href='/profile.php'" class="form-inline butDer fas fa-user bottom-icon"></button>

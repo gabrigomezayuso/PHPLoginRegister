@@ -4,28 +4,6 @@
   from{opacity:0} to{opacity:1}
 }
 
-
-
-.hide-scroll {
-  overflow: hidden;
-}
-
-.viewport {
-  overflow: auto;
-
-  /* Make sure the inner div is not larger than the container
-   * so that we have room to scroll.
-   */
-  max-height: 100%;
-
-  /* Pick an arbitrary margin/padding that should be bigger
-   * than the max width of all the scroll bars across
-   * the devices you are targeting.
-   * padding = -margin
-   */
-  margin-right: -100px;
-  padding-right: 100px;
-}
   .butt {
     /* padding: 10px; */
     display: inline-block;
@@ -236,13 +214,13 @@ p {
 
 .placeBox .content h3 {
   position: relative;
-  margin: 0;
   padding: 10px;
   color: #fff;
   font-size: 20px;
   font-weight: 600;
   width: 60%;
   font-family: 'Atlanta';
+  margin-top: 30px;
 }
 
 .placeBox .content h3 span {
@@ -288,7 +266,9 @@ p {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color: #24e2ff;
+  background: #24e2ff;
+  border: 0;
+  color: #fff;
   text-decoration:none;
   }
 
@@ -359,7 +339,7 @@ p {
 
   .searchbar{
     margin-bottom: auto;
-    margin-top: 100px;
+    margin-top: 80px;
     height: 60px;
     background-color: #fff;
     border-radius: 30px;
@@ -459,4 +439,29 @@ p {
   opacity: 0;
   animation-name: onOff;
   animation-direction: reverse;
+}
+
+.main-title{
+  margin-top: 35px;
+}
+
+.butIzq{
+  margin-left: 20px;
+}
+
+.butDer{
+  margin-right: 20px;
+}
+
+
+.bottom-icon{
+  background: none;
+  border: 0;
+  color: #fff;
+}
+
+.bottom-icon-actived{
+  background: none;
+  border: 0;
+  color: #00424d;
 }

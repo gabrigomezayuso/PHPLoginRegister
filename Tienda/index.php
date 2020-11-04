@@ -1,6 +1,6 @@
 <?php
 require_once("control/controlSession.php");
-    header( "refresh:1;url=inicio.php" );
+header( "refresh:1;url=inicio.php" );
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +41,6 @@ require_once("control/controlSession.php");
 </div>
 </header>
 
-,
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
