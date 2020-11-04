@@ -18,12 +18,13 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
     <link rel="stylesheet" href="dist/css/form-control.css">
     <link rel="stylesheet" href="dist/css/adminlte.css">
     <link rel="stylesheet" href="dist/css/inicio.css">
-    
+
+
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.vexels.com/media/users/3/157462/isolated/preview/88fbf3285773faa1142cbc625b810f40-mobile-online-shopping-icon-by-vexels.png"/>
     <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
 
-    <script src="dist/js/trans.js"></script>
+
     <script src="https://kit.fontawesome.com/90704118d5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -58,9 +59,16 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
         </div>
       </div>
   </nav> -->
+
+  <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
+    <a class="navbar-brand mx-auto" href="welcome.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
+  </nav>
+
+
+
 </header>
 
-<div class="jumbotron jumbotron-fluid height100p banner" id="home">
+<!-- <div class="jumbotron jumbotron-fluid height100p banner" id="home">
   <div class="container h100">
     <div class="contentBox h100">
       <div>
@@ -71,83 +79,88 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 </div>
 
 
+ -->
+
+<body class="transicion">
+  <div class="hide-scroll">
+      <div class="viewport">
+          ...
 
 
-<body>
+  <div class="sec1">
 
-
-<div class="sec1">
-
-    <div class="container h-100">
-      <div class="d-flex justify-content-center h-100">
-        <div class="searchbar">
-          <input class="search_input" type="text" name="" placeholder="Ciudad">
-          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+    <br>
+    <br>
+        <div class="container h-100">
+          <div class="d-flex justify-content-center h-100">
+            <div class="searchbar">
+              <input class="search_input" type="text" name="" placeholder="Ciudad">
+              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <br>
-    <br>
-    <hr class="style1">
-    <h3>Eventos destacados</h3>
-    <hr class="style1">
+        <br>
+        <br>
+        <hr class="style1">
+        <h3>Eventos destacados</h3>
+        <hr class="style1">
 
 
-    <div class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <?php
-              $consulta = "SELECT * FROM eventos";
-              $ejecutarConsulta = mysqli_query($con, $consulta);
-              $verFilas = mysqli_num_rows($ejecutarConsulta);
-              $fila = mysqli_fetch_array($ejecutarConsulta);
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <?php
+                  $consulta = "SELECT * FROM eventos";
+                  $ejecutarConsulta = mysqli_query($con, $consulta);
+                  $verFilas = mysqli_num_rows($ejecutarConsulta);
+                  $fila = mysqli_fetch_array($ejecutarConsulta);
 
-              if(!$ejecutarConsulta){
-                  echo"Error en la consulta";
-              }else{
-                  if($verFilas<1){
-                      echo"Sin registros";
+                  if(!$ejecutarConsulta){
+                      echo"Error en la consulta";
                   }else{
-                    echo'
-                    ';
-                      for($i=0; $i<=$fila; $i++){
-                          echo'
-                            <div class="App">
-                              <div class="vertical-center">
-                                <a href="product_page.php?page=product&id='.$fila[7].'"><img class="imgevento elevation-4" src="'.$fila[0].'" alt="'.$fila[1].'" width="600"></a>
+                      if($verFilas<1){
+                          echo"Sin registros";
+                      }else{
+                        echo'
+                        ';
+                          for($i=0; $i<=$fila; $i++){
+                              echo'
+                                <div class="App">
+                                  <div class="vertical-center">
+                                    <a href="product_page.php?page=product&id='.$fila[7].'"><img class="imgevento elevation-4" src="'.$fila[0].'" alt="'.$fila[1].'" width="600"></a>
 
-                                </div>
-                            </div> 
-                          <br>
+                                    </div>
+                                </div> 
+                              <br>
+                              ';
+                              $fila = mysqli_fetch_array($ejecutarConsulta);
+
+                          }
+                          echo'
+                          </div>
                           ';
-                          $fila = mysqli_fetch_array($ejecutarConsulta);
 
                       }
-                      echo'
-                      </div>
-                      ';
-
                   }
-              }
 
 
-          ?>
-                <br>
-    </div>
+              ?>
+                    <br>
+        </div>
+      </div>
   </div>
-</div>
 
 
+  </div>
+  </div>
+  <footer class="main-footer">
+      <strong>Copyright &copy; 2020 <a href="http://dejavugroup.es">DéjàVú</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 1.0
+      </div>
+  </footer>
 
-<footer class="main-footer">
-    <strong>Copyright &copy; 2020 <a href="http://dejavugroup.es">DéjàVú</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 1.0
-    </div>
-</footer>
-
-<script type="text/javascript" src="dist/js/trans.js"></script>
 </body>
 </html>

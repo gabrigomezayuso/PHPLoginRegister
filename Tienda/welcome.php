@@ -1,7 +1,7 @@
 <?php
 require_once("control/controlSession.php");
 $myusername=$_SESSION["user_signin"];
-
+header( "refresh:2;url=comprar.php" );
 ?>
 
 <!DOCTYPE html>
@@ -26,17 +26,23 @@ $myusername=$_SESSION["user_signin"];
     <div class="contentBox h100">
       <div>
         <img src="https://i.imgur.com/BHfYfVP.png" alt="clickfy" width="300">
-        <br>
-        <input type="button" value="Comprar" onclick="window.location.href='/comprar.php'" class="btn btn-outline-info" >
-        <input type="button" value="Carrito" onclick="window.location.href='/carrito.php'" class="btn btn-outline-info" >
+        <div class="loader">
+          <div class="duo duo1">
+            <div class="dot dot-a"></div>
+            <div class="dot dot-b"></div>
+          </div>
+          <div class="duo duo2">
+            <div class="dot dot-a"></div>
+            <div class="dot dot-b"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 </header>
 
-
-
+,
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
