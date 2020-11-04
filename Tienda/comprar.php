@@ -17,18 +17,23 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="dist/css/form-control.css">
     <link rel="stylesheet" href="dist/css/adminlte.css">
+    <link rel="stylesheet" href="dist/css/inicio.css">
+    
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.vexels.com/media/users/3/157462/isolated/preview/88fbf3285773faa1142cbc625b810f40-mobile-online-shopping-icon-by-vexels.png"/>
-    
-    
+    <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+
+    <script src="dist/js/trans.js"></script>
+    <script src="https://kit.fontawesome.com/90704118d5.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <title>Comprar</title>
 </head>
 
+
 <header>
-<nav class="navbar navbar-expand-lg navbar-dark bg-info  fixed-top">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-info  fixed-top">
     <a class="navbar-brand" href="/welcome.php">
         <img src="/dist/img/logo.png" width="110" alt="">
       </a>
@@ -52,18 +57,43 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
         <input type="button" value="<?php echo $myusername?>" onclick="window.location.href='/profile.php'" class="btn btn-outline-light" >
         </div>
       </div>
-
-  </nav>
+  </nav> -->
 </header>
 
- <body>
+<div class="jumbotron jumbotron-fluid height100p banner" id="home">
+  <div class="container h100">
+    <div class="contentBox h100">
+      <div>
+        <img src="https://i.imgur.com/BHfYfVP.png" alt="clickfy" width="300">
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="wrapper bg-light">
 
 
-<br>
-<br>
-  <div class="content-wrapper">
+
+<body>
+
+
+<div class="sec1">
+
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" placeholder="Ciudad">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <hr class="style1">
+    <h3>Eventos destacados</h3>
+    <hr class="style1">
+
+
     <div class="content">
       <div class="container-fluid">
         <div class="row">
@@ -104,7 +134,6 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 
           ?>
                 <br>
-      </div>
     </div>
   </div>
 </div>
@@ -119,6 +148,6 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
     </div>
 </footer>
 
-
+<script type="text/javascript" src="dist/js/trans.js"></script>
 </body>
 </html>

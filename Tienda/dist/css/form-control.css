@@ -15,13 +15,14 @@
   border-radius: 20px;
 }
 .imgevento{
-  width: 350px;
-  transition: transform .2s; /* Animation */
+  width: 50%;
+  transition: transform .2s;
   margin: auto;
   display: block;
   transition: all .3s;
   border-radius: 20px;
   margin-top: 30px;
+  min-width: 350px;
 }
 
 .imgeventoInside{
@@ -34,7 +35,7 @@ border-radius: 20px;
 margin-top: 30px;
 }
 .imgevento:hover{
-  transform: scale(1.2);
+  transform: scale(1.06);
 }
 
 h3{
