@@ -9,10 +9,12 @@ $bd="tienda";
 $mysqli = new mysqli('localhost', 'root', 'usbw', 'tienda');
 
 if (isset($_GET['busqueda'])) {
+  $tipoBusqueda = $_GET['tipo'];
   $busqueda = $_GET['busqueda'];
 } else {
   // Simple error to display if the id wasn't specified
- $busqueda=0;
+ $busqueda='';
+ $tipoBusqueda='';
 }
 
 
@@ -60,8 +62,20 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
           
               <div class="container h-100">
                 <div class="d-flex justify-content-center h-100">
+                <form action="" method="get">
+
+
                   <div class="searchbar">
-                  <form action="" method="get">
+                      <label>
+                        <input type="radio" name="tipo" value="evento" checked required>
+                        <i class="fas fa-location-arrow"></i>
+                      </label>
+                      <label>
+                        <input type="radio" name="tipo" value="club" required>
+                        <i class="fas fa-compact-disc"></i>
+                      </label>
+
+
                     <input class="search_input" type="text" name="busqueda" placeholder="<?php echo $busqueda; ?>">
                     <button type="submit" class="fas fa-search search_icon"></button>
                     </form>
@@ -73,12 +87,24 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
               <div class="App">
                 <div class="vertical-center">
                   <?php
+                  if($tipoBusqueda == 'evento'){
                     $query = $mysqli -> query ("SELECT *, e.id_local, l.id_local, l.id_ciudad, c.id_ciudad, l.id_ciudad FROM eventos e , locales l, ciudades c WHERE e.id_local=l.id_local AND l.id_ciudad=c.id_ciudad AND c.nombre_ciudad = '$busqueda' ORDER BY fecha ASC");
                     while ($valores = mysqli_fetch_array($query)) {
                       echo '
-                                        <a href="product_page.php?page=product&id='.$valores[7].'"><img class="imgevento elevation-4" src="'.$valores[0].'" alt="'.$valores[1].'" width="600"></a>
+                        <a href="product_page.php?page=product&id='.$valores[7].'"><img class="imgevento elevation-4" src="'.$valores[0].'" alt="'.$valores[1].'" width="600"></a>
                       ';
                     }
+                }
+
+                if($tipoBusqueda == 'club'){
+                    $query = $mysqli -> query ("SELECT * FROM locales WHERE nombre_local like '%lit%'");
+                    while ($valores = mysqli_fetch_array($query)) {
+                      echo '
+                        <a href="product_page.php?page=product&id='.$valores[1].'"><img class="imgevento elevation-4" src="https://dediscoteca.com/wp-content/uploads/2020/01/81225622_158057418938498_1631533027777576960_o.jpg" alt="'.$valores[2].'" width="600"></a>
+                      ';
+                    }
+                }
+
                   ?>
                 </div>
               </div> 

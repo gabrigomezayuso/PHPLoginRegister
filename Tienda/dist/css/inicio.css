@@ -1,3 +1,13 @@
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* CHECKED STYLES */
+[type=radio]:checked {
+  outline: 2px solid #f00;
+}
 .transicion{
   animation:opac 1.8s
 }@keyframes opac{
