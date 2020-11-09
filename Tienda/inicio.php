@@ -52,8 +52,6 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 
 
 <body class="transicion">
-  <div class="hide-scroll">
-      <div class="viewport">
 
         <div class="sec1">
 
@@ -112,7 +110,6 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
               </div>
 
 
-      </div>
   </div>
 
   <nav id="topNav" class="navbar fixed-bottom navbar-toggleable-sm navbar-inverse bg-inverse">
@@ -122,7 +119,6 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
     <a class="navbar-brand mx-auto" href="index.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
     <button onclick="window.location.href='/entradas.php'" class="form-inline butDer fas fa-ticket-alt bottom-icon"></button>
     <button onclick="window.location.href='/profile.php'" class="form-inline butDer fas fa-user bottom-icon"></button>
-  </form>
   </nav>
 
 

@@ -48,7 +48,7 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
   <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
   <button onclick="window.location.href=''" class="form-inline fas fa-user bottom-icon-disabled"></button>
     <a class="navbar-brand mx-auto" href="index.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
-    <button onclick="window.location.href='/logout.php'" class="form-inline fas fa-user bottom-icon"></button>
+    <button onclick="window.location.href='/logout.php'" class="form-inline fas fa-sign-out-alt bottom-icon"></button>
   </nav>
 </header>
 
@@ -78,7 +78,7 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
                                           <div class="card-block text-center text-white">
                                               <div class="m-b-25"> <img class="imgRond" src="'.$valores[8].'" width="80px"> </div>
                                               <h6 class="f-w-600">'.$valores[0].' '.$valores[1].'</h6>
-                                              <p>'.$valores[4].'</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                                              <p>@'.$valores[4].'</p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                                           </div>
                                       </div>
                                       <div class="col-sm-8">

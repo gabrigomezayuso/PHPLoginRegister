@@ -76,66 +76,14 @@ $consulta = "SELECT * FROM eventos WHERE id_evento ='$id'";
       <div class="container-fluid">
         <div class="row">
 
-          <?php
-              $consulta = "SELECT * , e.id_evento, l.id_local, l.nombre_local FROM eventos e, locales l WHERE e.id_evento ='$id' AND e.id_local=l.id_local";
-              $ejecutarConsulta = mysqli_query($con, $consulta);
-              $verFilas = mysqli_num_rows($ejecutarConsulta);
-              $fila = mysqli_fetch_array($ejecutarConsulta);
-
-              if(!$ejecutarConsulta){
-                  echo"Error en la consulta";
-              }else{
-                  if($verFilas<1){
-                      echo"Sin registros";
-                  }else{
-                    echo'
-                    ';
-                      for($i=0; $i<=$fila; $i++){
-                          echo'
-                            <div class="App">
-                              <div class="vertical-center">
-                              <h3 class="titulo-evento"><strong>'.$fila[1].'</strong></h3>
-                              <p class="text-muted text-center subtitulo"><i class="fas fa-calendar-day"></i> '.$fila[2].'&nbsp;|&nbsp;<a class="text-danger">+'.$fila[3].'</a>&nbsp;|&nbsp;<i class="fas fa-map-marker-alt"></i> '.$fila[12].'</p>
-                                <a href="product_page.php?page=product&id='.$fila[9].'"><img class="imgevento elevation-4" src="'.$fila[0].'" alt="'.$fila[1].'" width="600"></a>
-                                <div class="container h100">
-                                <br>
-                                <br>
-
-                                <form action="">
-                                <p class="text-center caract"><strong>Entrada</strong> '.$fila[4].' €</p>
-                                <p class="text-center caract"><strong>Asistentes</strong>
-                                <select name="asistetes" class="form-product">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                  </select></p>
-                                  <button type="submit" name="submit" id="submit" class="btn btn-outline-info btn-lg btn-block">Comprar</button>
-                                </div>
-                                </form>
-                                <br>
-                                <br>
-                                </div>
-                            </div> 
-                          <br>
-                          ';
-                          $fila = mysqli_fetch_array($ejecutarConsulta);
-
-                      }
-                      echo'
-                      </div>
-                      ';
-
-                  }
-              }
-
-
-          ?>
+        <?php       
+    $query = $mysqli -> query ("SELECT *, e.id_local, l.id_local, l.id_ciudad, c.id_ciudad, l.id_ciudad FROM eventos e , locales l, ciudades c WHERE e.id_local=l.id_local AND l.id_ciudad=c.id_ciudad AND c.nombre_ciudad = '$busqueda' ORDER BY fecha ASC");
+    while ($valores = mysqli_fetch_array($query)) {
+        echo '
+            <a href="product_page.php?page=product&id='.$valores[9].'"><img class="imgevento elevation-4" src="'.$valores[0].'" alt="'.$valores[1].'" width="600"></a>
+        ';
+    }
+?>
 
 
 
@@ -162,4 +110,9 @@ $consulta = "SELECT * FROM eventos WHERE id_evento ='$id'";
 
 </body>
 </html>
+
+
+
+
+
 
