@@ -9,6 +9,8 @@ FROM eventos
 WHERE dest = 1
 ORDER BY 'fecha' ASC
 
+SELECT id, username FROM usuarios  WHERE username = $myusername;
+
 
                     <?php
                         $consulta = "SELECT * FROM eventos";

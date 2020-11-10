@@ -101,7 +101,7 @@ $consulta = "SELECT * FROM eventos WHERE id_evento ='$id'";
                                 <br>
                                 <br>
 
-                                <form action="/qr-event.php" method="GET">
+                                <form action="/qr-event.php" method="get">
                                 <p class="text-center caract"><strong>Entrada</strong> '.$fila[4].' €</p>
                                 <p class="text-center caract"><strong>Asistentes</strong>';
                                 $fila = mysqli_fetch_array($ejecutarConsulta);
@@ -111,7 +111,7 @@ $consulta = "SELECT * FROM eventos WHERE id_evento ='$id'";
                           }
         ?>
 
-                                <select name="asistetes" class="form-product">
+                                <select name="asistentes" class="form-product">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
