@@ -101,9 +101,16 @@ $consulta = "SELECT * FROM eventos WHERE id_evento ='$id'";
                                 <br>
                                 <br>
 
-                                <form action="">
+                                <form action="/qr-event.php" method="GET">
                                 <p class="text-center caract"><strong>Entrada</strong> '.$fila[4].' €</p>
-                                <p class="text-center caract"><strong>Asistentes</strong>
+                                <p class="text-center caract"><strong>Asistentes</strong>';
+                                $fila = mysqli_fetch_array($ejecutarConsulta);
+
+                              }
+                            }
+                          }
+        ?>
+
                                 <select name="asistetes" class="form-product">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
@@ -115,27 +122,15 @@ $consulta = "SELECT * FROM eventos WHERE id_evento ='$id'";
                                     <option value="8">8</option>
                                     <option value="9">9</option>
                                   </select></p>
-                                  <button type="submit" name="submit" id="submit" class="btn btn-outline-info btn-lg btn-block">Comprar</button>
+                                  <button type="sumbit" value="<?php echo $id;?>" name="product" id="submit" class="btn btn-outline-info btn-lg btn-block">Comprar</button>
                                 </div>
                                 </form>
                                 <br>
                                 <br>
                                 </div>
                             </div> 
-                          <br>
-                          ';
-                          $fila = mysqli_fetch_array($ejecutarConsulta);
-
-                      }
-                      echo'
+                          <br>           
                       </div>
-                      ';
-
-                  }
-              }
-
-
-          ?>
 
 
 
