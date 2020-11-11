@@ -9,8 +9,8 @@ $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
 
 
 // Check to make sure the id parameter is specified in the URL
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+if (isset($_POST['id'])) {
+    $id = $_POST['id'];
 } else {
     // Simple error to display if the id wasn't specified
     die ('¡Este evento no esta disponible!');
