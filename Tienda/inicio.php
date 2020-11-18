@@ -1,12 +1,14 @@
 <?php
 require_once("control/controlSession.php");
 $myusername=$_SESSION["user_signin"];
-$servidor="localhost";
+//Parámetros de conexión
+$servidor="127.0.0.1";
 $usuario="root";
-$contraseña="usbw";
+$contraseña="";
 $bd="tienda";
 
-$mysqli = new mysqli('localhost', 'root', 'usbw', 'tienda');
+
+$mysqli = new mysqli('127.0.0.1', 'root', '', 'tienda');
 
 if (isset($_GET['busqueda'])) {
   $busqueda = $_GET['busqueda'];

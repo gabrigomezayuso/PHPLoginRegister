@@ -1,61 +1,59 @@
 <?php
     require_once("control/controlSession.php");
     $myusername=$_SESSION["user_signin"];
-    $servidor="localhost";
-    $usuario="root";
-    $contraseña="usbw";
-    $bd="tienda";
-    $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
-    $mysqli = new mysqli('localhost', 'root', 'usbw', 'tienda');
+include 'config.php';
+
+$mysqli = new mysqli('127.0.0.1', 'root', '', 'tienda');
+$con = mysqli_connect($servidor, $usuario, $contraseña, $bdd);
 
 
 
-    // Check to make sure the id parameter is specified in the URL
-        $product=$_POST["product"];
+    // // Check to make sure the id parameter is specified in the URL
+    //     $product=$_POST["product"];
 
 
-    $consulta = "SELECT e.id_usuario, e.id_entrada, e.id_evento , u.username FROM entrada e, usuarios u WHERE $myusername = u.username AND e.id_evento = $product";
-    $ejecutarConsulta = mysqli_query($con, $consulta);
-    $verFilas = mysqli_num_rows($ejecutarConsulta);
-    $fila = mysqli_fetch_array($ejecutarConsulta);
+    // $consulta = "SELECT e.id_usuario, e.id_entrada, e.id_evento , u.username FROM entrada e, usuarios u WHERE $myusername = u.username AND e.id_evento = $product";
+    // $ejecutarConsulta = mysqli_query($con, $consulta);
+    // $verFilas = mysqli_num_rows($ejecutarConsulta);
+    // $fila = mysqli_fetch_array($ejecutarConsulta);
 
-    if(!$ejecutarConsulta){
-    }else{
-        if($verFilas<1){
-        }else{
-        echo'
-        ';
-            for($i=0; $i<=1; $i++){
-            $id=$fila[0];
-            echo $id;
-            }
-        }
-        }
+    // if(!$ejecutarConsulta){
+    // }else{
+    //     if($verFilas<1){
+    //     }else{
+    //     echo'
+    //     ';
+    //         for($i=0; $i<=1; $i++){
+    //         $id=$fila[0];
+    //         echo $id;
+    //         }
+    //     }
+    //     }
 
-        $consulta0 = "SELECT e.id_evento, e.id_local, l.id_local, l.nombre_local  FROM eventos e, locales l  WHERE  $product = e.id_evento and e.id_local = l.id_local ;";
-        $ejecutarConsulta = mysqli_query($con, $consulta0);
-        $verFilas = mysqli_num_rows($ejecutarConsulta);
-        $fila = mysqli_fetch_array($ejecutarConsulta);
+    //     $consulta0 = "SELECT e.id_evento, e.id_local, l.id_local, l.nombre_local  FROM eventos e, locales l  WHERE  $product = e.id_evento and e.id_local = l.id_local ;";
+    //     $ejecutarConsulta = mysqli_query($con, $consulta0);
+    //     $verFilas = mysqli_num_rows($ejecutarConsulta);
+    //     $fila = mysqli_fetch_array($ejecutarConsulta);
     
-        if(!$ejecutarConsulta){
-        }else{
-            if($verFilas<1){
-            }else{
-            echo'
-            ';
-                for($i=0; $i<=1; $i++){
-                $idLocal=$fila[1];
-                }
-            }
-            }
+    //     if(!$ejecutarConsulta){
+    //     }else{
+    //         if($verFilas<1){
+    //         }else{
+    //         echo'
+    //         ';
+    //             for($i=0; $i<=1; $i++){
+    //             $idLocal=$fila[1];
+    //             }
+    //         }
+    //         }
                     
 
-            $query = $mysqli -> query ("SELECT e.id_usuario, e.id_entrada, e.id_evento , u.username FROM entrada e, usuarios u WHERE $myusername = u.username AND e.id_evento = $product");
-            while ($valores = mysqli_fetch_array($query)) {
-              echo '
-                <a href="product_page.php?page=product&id='.$valores[0].'"><img class="imgevento elevation-4" src="'.$valores[0].'" alt="'.$valores[1].'" width="600"></a>
-              ';
-            }                                                
+    //         $query = $mysqli -> query ("SELECT e.id_usuario, e.id_entrada, e.id_evento , u.username FROM entrada e, usuarios u WHERE $myusername = u.username AND e.id_evento = $product");
+    //         while ($valores = mysqli_fetch_array($query)) {
+    //           echo '
+    //             <a href="product_page.php?page=product&id='.$valores[0].'"><img class="imgevento elevation-4" src="'.$valores[0].'" alt="'.$valores[1].'" width="600"></a>
+    //           ';
+    //         }                                                
 
 
 
@@ -83,7 +81,7 @@
 
 
       <img id='barcode' 
-            src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo $id_entrada;?>&amp;size=300x300" 
+            src="https://api.qrserver.com/v1/create-qr-code/?data=<?php echo '1232312312';?>&amp;size=300x300" 
             alt="" 
             width="500" 
             height="500" />

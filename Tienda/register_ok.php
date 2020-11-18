@@ -33,15 +33,10 @@
 								$password=$_POST["password"];
 
 
-								//Parámetros de conexión
-								$servidor="localhost";
-								$usuario="root";
-								$contraseña="usbw";
-								$bd="tienda";
+								include 'config.php';
 
-
-							//realizamos la conexión
-							$con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
+								$mysqli = new mysqli('127.0.0.1', 'root', '', 'tienda');
+								$con = mysqli_connect($servidor, $usuario, $contraseña, $bdd);
 							if(!$con)
 							{
 								die("Con se ha podido realizar la conexión: ". mysqli_connect_error() . "<br>");
