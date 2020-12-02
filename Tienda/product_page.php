@@ -3,9 +3,6 @@ require_once("control/controlSession.php");
 $myusername=$_SESSION["user_signin"];
 include 'config.php';
 
-$mysqli = new mysqli('127.0.0.1', 'root', '', 'tienda');
-$con = mysqli_connect($servidor, $usuario, $contraseña, $bdd);
-
 // Check to make sure the id parameter is specified in the URL
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

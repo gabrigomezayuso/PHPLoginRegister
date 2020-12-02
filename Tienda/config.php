@@ -1,9 +1,9 @@
 <?php
                     //Parámetros de conexión
 					//Parámetros de conexión
-					$servidor="127.0.0.1";
+					$servidor="localhost";
 					$usuario="root";
-					$contraseña="";
+					$contraseña="usbw";
 					$bdd="tienda";
 
 
@@ -21,7 +21,7 @@
 
     }
 
-    $mysqli = new mysqli('127.0.0.1', 'root', '', 'tienda');
+    $mysqli = new mysqli('localhost', 'root', 'usbw', 'tienda');
     //$mysqli = new mysqli('localhost', 'root', 'usbw', 'midnight');
 
 ?>

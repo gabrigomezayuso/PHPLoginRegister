@@ -1,9 +1,7 @@
 <?php
 require_once("control/controlSession.php");
 include 'config.php';
-
-$mysqli = new mysqli('127.0.0.1', 'root', '', 'tienda');
-$con = mysqli_connect($servidor, $usuario, $contraseña, $bdd);
+$myusername = $_SESSION["user_signin"];
 
 if (isset($_GET['busqueda'])) {
   $busqueda = $_GET['busqueda'];
