@@ -28,6 +28,7 @@ if (isset($_GET['busqueda'])) {
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link rel="icon" type="image/png" href="https://images.vexels.com/media/users/3/157462/isolated/preview/88fbf3285773faa1142cbc625b810f40-mobile-online-shopping-icon-by-vexels.png"/>
     <link href='https://fonts.googleapis.com/css?family=Alata' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
 
 
     <script src="https://kit.fontawesome.com/90704118d5.js" crossorigin="anonymous"></script>
@@ -80,14 +81,14 @@ if (isset($_GET['busqueda'])) {
 
 
 
-              <div class="content">
+              <div class="container">
                 <div class="container-fluid">
                   <div class="row">
 
                     
                     <div class="App">
                       <div class="vertical-center">
-                        <div class="main-title">
+                        <div class="main-title mayu titulo">
                         <h3>Eventos destacados</h3>
                         </div>
                         <?php
