@@ -89,10 +89,10 @@ if (isset($_GET['busqueda'])) {
                     <div class="App">
                       <div class="vertical-center">
                         <div class="main-title mayu titulo">
-                        <h3>Eventos destacados</h3>
+                        <h3>Eventos</h3>
                         </div>
                         <?php
-                          $query = $mysqli -> query ("SELECT * FROM eventos WHERE dest = 1 ORDER BY 'fecha' ASC");
+                          $query = $mysqli -> query ("SELECT * FROM eventos ORDER BY 'fecha' ASC");
                           while ($valores = mysqli_fetch_array($query)) {
                             echo '
                                               <a href="product_page.php?page=product&id='.$valores[9].'"><img class="imgevento elevation-4" src="'.$valores[0].'" alt="'.$valores[1].'" width="600"></a>

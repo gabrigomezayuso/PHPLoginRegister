@@ -35,7 +35,6 @@
 
 								include 'config.php';
 
-								$mysqli = new mysqli('127.0.0.1', 'root', '', 'tienda');
 								$con = mysqli_connect($servidor, $usuario, $contraseña, $bdd);
 							if(!$con)
 							{
@@ -58,7 +57,8 @@
 							$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 							$count = mysqli_num_rows($result);
 							
-							
+
+
 							// If result matched $myusername and $mypassword, table row must be 1 row
 											if($count == 1) { 
 												echo  "El correo o nombre de usuario ya está registrado.";
@@ -67,8 +67,14 @@
 												
 												else {
 												$consulta=mysqli_query($con,"insert into usuarios values 
-												('$firstname','$lastname', '$sexo','$mail','$username','$mobilenumber','$password',1,'https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg','')");
-								
+												('$firstname','$lastname', '$sexo','$mail','$username','$mobilenumber','$password',1,'https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg','');
+												");
+												$sql2 ="CREATE TABLE `carrito_$username` (`order_id` int(11) NOT NULL,`evento_id` int(11) NOT NULL,`cantidad` int(11) NOT NULL,`precio` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;";
+												$result = mysqli_query($con,$sql2);
+												$sql3 ="ALTER TABLE `carrito_$username`ADD PRIMARY KEY (`order_id`), ADD KEY `id_producto` (`evento_id`);";
+												$result = mysqli_query($con,$sql3);
+												$sql4 ="ALTER TABLE `carrito_$username`ADD CONSTRAINT `id_producto` FOREIGN KEY (`evento_id`) REFERENCES `eventos` (`id_evento`);COMMIT;";
+												$result = mysqli_query($con,$sql4);
 												if(!$consulta)
 												{
 													echo"El nombre de usuario ya existe, escoja otro";
