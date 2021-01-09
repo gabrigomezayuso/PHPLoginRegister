@@ -45,13 +45,8 @@ if (isset($_GET['busqueda'])) {
   </nav>
 </header>
 
-
-
 <body class="transicion">
-
   <div class="sec1">
-
-
     <div class="container h-100">
       <div class="d-flex justify-content-center h-100">
         <div class="searchbar">
@@ -62,30 +57,29 @@ if (isset($_GET['busqueda'])) {
         </div>
       </div>
     </div>
-
-
     <div class="App">
       <div class="vertical-center">
-
-        <?php
-
-        $query = $mysqli->query("SELECT *, e.id_local, l.id_local, l.id_ciudad, c.id_ciudad, l.id_ciudad FROM eventos e , locales l, ciudades c WHERE e.id_local=l.id_local AND l.id_ciudad=c.id_ciudad AND c.nombre_ciudad = '$busqueda' ORDER BY fecha ASC");
-        while ($valores = mysqli_fetch_array($query)) {
-          echo '
-                                        <a href="product_page.php?page=product&id=' . $valores[9] . '"><img class="imgevento elevation-4" src="' . $valores[0] . '" alt="' . $valores[1] . '" width="600"></a>
-                      ';
-        }
-        ?>
       </div>
     </div>
+    <br>
+    <br>
 
+    <?php
+    // $query = $mysqli->query("SELECT *, e.id_local, l.id_local, l.id_ciudad, c.id_ciudad, l.id_ciudad FROM eventos e , locales l, ciudades c WHERE e.id_local=l.id_local AND l.id_ciudad=c.id_ciudad AND c.nombre_ciudad = '$busqueda' ORDER BY fecha ASC");
+    // while ($valores = mysqli_fetch_array($query)) {
+    //   echo '
 
+    //   <div class="imgevento">
+    //   <a href="product_page.php?page=product&id=' . $valores[9] . '"><img class="imagen elevation-4" src="' . $valores[0] . '" alt="' . $valores[1] . '" width="600"></a><br>
+    //   <br> <p> hola hola</p>
+    //   </div>
+    //               ';
+    // }
+    ?>
 
     <div class="container">
       <div class="container-fluid">
         <div class="row">
-
-
           <div class="App">
             <div class="vertical-center">
               <div class="main-title mayu titulo">
@@ -101,22 +95,31 @@ if (isset($_GET['busqueda'])) {
                     <label name="ASC" type="submit" value="1">Precio ascendiente</label>
                   </div>
                   <div class="col-auto">
-                  <label value="DESC" type="submit">Precio descenciente</label>
+                    <label value="DESC" type="submit">Precio descenciente</label>
                   </div>
                   <div class="col-auto">
-                  <label value="EV" type="submit">Evento proximo</label>
+                    <label value="EV" type="submit">Evento proximo</label>
                   </div>
                 </form>
               </div>
-
               <?php
-              if($_POST['ASC'] === true) {
-                $query = $mysqli->query("SELECT * FROM eventos ORDER BY 'precio_entrada' ASC");
-                while ($valores = mysqli_fetch_array($query)) {
-                  echo '
-                                                <a href="product_page.php?page=product&id=' . $valores[9] . '"><img class="imgevento elevation-4" src="' . $valores[0] . '" alt="' . $valores[1] . '" width="600"></a>
-                              ';
-                }
+              $query = $mysqli->query("SELECT * , e.id_evento, l.id_local, l.nombre_local FROM eventos e, locales l WHERE e.id_local=l.id_local");
+              while ($valores = mysqli_fetch_array($query)) {
+                echo '
+                  <div class="imgevento">
+                  <br>                  <br>
+
+                  <a href="product_page.php?page=product&id=' . $valores[9] . '"><img class="imagen " src="' . $valores[0] . '" alt="' . $valores[1] . '" width="600"></a>
+                  <div class="vertical-center">
+                  <br>
+                              <h3 class="titulo-evento text-center"><strong>' . $valores[1] . '</strong></h3>
+                              <p class="text-muted text-center subtitulo"><i class="fas fa-calendar-day"></i> ' . $valores[2] . '&nbsp;|&nbsp;<a class="text-danger">+' . $valores[3] . '</a>&nbsp;|&nbsp;<i class="fas fa-map-marker-alt"></i> ' . $valores[12] . '</p>
+                              <h4 class="text-center titulo-evento">Precio: ' . $valores[4] . ' €</h4>
+                              </div>
+                              <br>
+                              </div>
+
+                ';
               }
               // $query = $mysqli->query("SELECT * FROM eventos ORDER BY 'fecha' ASC");
               // while ($valores = mysqli_fetch_array($query)) {
