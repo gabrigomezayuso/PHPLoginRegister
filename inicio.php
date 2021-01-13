@@ -92,24 +92,55 @@ if (isset($_GET['busqueda'])) {
                 <br>
                 <form class="row g-3" method="POST">
                   <div class="col-auto">
-                    <input class="text" name="ASC" type="submit" value="Precio ascendiente">
+                    <input class="btn btn-outline-info btn-block" name="ASC" type="submit" value="Precio ascendiente">
                   </div>
                   <div class="col-auto">
-                  <input class="text" name="DESC" type="submit" value="Precio descendiente">
+                  <input class="btn btn-outline-info btn-block" name="DESC" type="submit" value="Precio descendiente">
                   </div>
               </form>
               </div>
               <?php
 
 if(isset($_POST["ASC"])){
-  echo "soy el puto";
-}
+  $query = $mysqli->query("SELECT * , e.id_evento, l.id_local, l.nombre_local FROM eventos e, locales l WHERE e.id_local=l.id_local ORDER BY precio_entrada ASC");
+  while ($valores = mysqli_fetch_array($query)) {
+    echo '
+      <div class="imgevento">
+      <br>                  <br>
+
+      <a href="product_page.php?page=product&id=' . $valores[9] . '"><img class="imagen " src="' . $valores[0] . '" alt="' . $valores[1] . '" width="600"></a>
+      <div class="vertical-center">
+      <br>
+                  <h3 class="titulo-evento text-center"><strong>' . $valores[1] . '</strong></h3>
+                  <p class="text-muted text-center subtitulo"><i class="fas fa-calendar-day"></i> ' . $valores[2] . '&nbsp;|&nbsp;<a class="text-danger">+' . $valores[3] . '</a>&nbsp;|&nbsp;<i class="fas fa-map-marker-alt"></i> ' . $valores[12] . '</p>
+                  <h4 class="text-center titulo-evento">Precio: ' . $valores[4] . ' €</h4>
+                  </div>
+                  <br>
+                  </div>
+
+    ';
+  }}
 if(isset($_POST["DESC"])){
-  echo "soy el puto";
-}
+  $query = $mysqli->query("SELECT * , e.id_evento, l.id_local, l.nombre_local FROM eventos e, locales l WHERE e.id_local=l.id_local ORDER BY precio_entrada DESC");
+  while ($valores = mysqli_fetch_array($query)) {
+    echo '
+      <div class="imgevento">
+      <br>                  <br>
+
+      <a href="product_page.php?page=product&id=' . $valores[9] . '"><img class="imagen " src="' . $valores[0] . '" alt="' . $valores[1] . '" width="600"></a>
+      <div class="vertical-center">
+      <br>
+                  <h3 class="titulo-evento text-center"><strong>' . $valores[1] . '</strong></h3>
+                  <p class="text-muted text-center subtitulo"><i class="fas fa-calendar-day"></i> ' . $valores[2] . '&nbsp;|&nbsp;<a class="text-danger">+' . $valores[3] . '</a>&nbsp;|&nbsp;<i class="fas fa-map-marker-alt"></i> ' . $valores[12] . '</p>
+                  <h4 class="text-center titulo-evento">Precio: ' . $valores[4] . ' €</h4>
+                  </div>
+                  <br>
+                  </div>
+
+    ';
+  }}
 if(!isset($_POST["ASC"])&&!isset($_POST["DESC"])){
-  echo "soy el puto2";
-}
+
               $query = $mysqli->query("SELECT * , e.id_evento, l.id_local, l.nombre_local FROM eventos e, locales l WHERE e.id_local=l.id_local");
               while ($valores = mysqli_fetch_array($query)) {
                 echo '
@@ -128,6 +159,7 @@ if(!isset($_POST["ASC"])&&!isset($_POST["DESC"])){
 
                 ';
               }
+            }
               // $query = $mysqli->query("SELECT * FROM eventos ORDER BY 'fecha' ASC");
               // while ($valores = mysqli_fetch_array($query)) {
               //   echo '

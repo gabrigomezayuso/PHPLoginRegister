@@ -33,7 +33,7 @@
 								$password=$_POST["password"];
 
 
-								include 'config.php';
+								include 'config/config.php';
 
 								$con = mysqli_connect($servidor, $usuario, $contraseña, $bdd);
 							if(!$con)
