@@ -153,9 +153,9 @@ if(!isset($_POST["ASC"])&&!isset($_POST["DESC"])){
                               <h3 class="titulo-evento text-center"><strong>' . $valores[1] . '</strong></h3>
                               <p class="text-muted text-center subtitulo"><i class="fas fa-calendar-day"></i> ' . $valores[2] . '&nbsp;|&nbsp;<a class="text-danger">+' . $valores[3] . '</a>&nbsp;|&nbsp;<i class="fas fa-map-marker-alt"></i> ' . $valores[12] . '</p>
                               <h4 class="text-center titulo-evento">Precio: ' . $valores[4] . ' €</h4>
-                              </div>
-                              <br>
-                              </div>
+                  </div>
+                  <br>
+                  </div>
 
                 ';
               }

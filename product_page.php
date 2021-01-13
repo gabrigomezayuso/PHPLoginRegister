@@ -92,16 +92,13 @@ if (!$ejecutarConsulta) {
                                 <br>
                                 <br>
 
-                                <form action="/qr-event.php" method="post">
+                                <form action="carrito.php" method="post">
                                 <p class="text-center caract"><strong>Entrada</strong> ' . $fila[4] . ' €</p>';
                 $fila = mysqli_fetch_array($ejecutarConsulta);
               }
             }
           }
           ?>
-          <div class="form-group">
-            <input type="number" class="form-control" placeholder="Cantidad">
-          </div>
           <button type="sumbit" value="<?php echo $id; ?>" name="product" id="submit" class="btn btn-outline-info btn-lg btn-block">Añadir al carrito</button>
         </div>
         </form>

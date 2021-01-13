@@ -3,12 +3,20 @@ require_once("control/controlSession.php");
 include 'config/config.php';
 $myusername = $_SESSION["user_signin"];
 
-if (isset($_GET['busqueda'])) {
-  $busqueda = $_GET['busqueda'];
-} else {
-  // Simple error to display if the id wasn't specified
-  $busqueda = 0;
-}
+    $id = $_POST['product'];
+    $cantidad = 0;
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // username and password sent from form 
+        $consulta = mysqli_query($con, "INSERT INTO `carrito_$myusername` evento_id VALUES ('',$id,'$cantidad')");
+        if (!$consulta) {
+          echo "Error Consulta";
+        } else {
+          header("Location: /carrito.php");
+        }
+      }
+
+  
 
 
 //realizamos la conexión
@@ -40,11 +48,16 @@ if (isset($_GET['busqueda'])) {
 
 <header>
   <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
-    <a class="navbar-brand mx-auto" href="index.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
+    <a class="navbar-brand mx-auto" href="index.php"><img src="dist/img/logo.png" width="100" class="d-inline-block align-top" alt=""></a></a>
   </nav>
 </header>
 
 <body class="transicion">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 <div class="container">
     <h1>Carrito de compras</h1>
     <table class="table table-hover table-light">
@@ -53,15 +66,38 @@ if (isset($_GET['busqueda'])) {
       <th>Nombre</th>
       <th>Cantidad</th>
       <th>Precio</th>
+      <th>Borrar</th>
+      <th>Actualizar</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th></th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
+      <?php
+        $query = $mysqli->query("SELECT c.evento_id, c.cantidad, e.nombre, e.precio_entrada FROM `carrito_$myusername` c, eventos e WHERE c.evento_id = e.id_evento");
+        while ($valores = mysqli_fetch_array($query)) {
+        echo '
+        <tr>
+            <td>' . $valores[2] . '</td>
+            <td>
+            
+            <input type="number" class="form-control text-center" value="' . $valores[1] . '"
+            
+            </td>
+            <td>' . $valores[3] . '</td>
+            <td>
+            
+            <form action="borrar_producto_carrito.php" method="post">
+            <button type="submit" class="btn btn-danger " name="btnBorrar" value="' . $valores[0] . '">
+            <span class="icon text-white-50">
+                <i class="fas fa-trash"></i>
+                </span>
+            </button>
+            </form>
+            
+            </td>
+        </tr>
+        ';
+        }
+      ?>
   </tbody>
 </table>
 </div>

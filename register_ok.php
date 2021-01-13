@@ -69,7 +69,7 @@
 												$consulta=mysqli_query($con,"insert into usuarios values 
 												('$firstname','$lastname', '$sexo','$mail','$username','$mobilenumber','$password',1,'https://icon-library.com/images/default-profile-icon/default-profile-icon-16.jpg','');
 												");
-												$sql2 ="CREATE TABLE `carrito_$username` (`order_id` int(11) NOT NULL,`evento_id` int(11) NOT NULL,`cantidad` int(11) NOT NULL,`precio` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;";
+												$sql2 ="CREATE TABLE `carrito_$username` (`order_id` int(11) NOT NULL,`evento_id` int(11) NOT NULL,`cantidad` int(11) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;";
 												$result = mysqli_query($con,$sql2);
 												$sql3 ="ALTER TABLE `carrito_$username`ADD PRIMARY KEY (`order_id`), ADD KEY `id_producto` (`evento_id`);";
 												$result = mysqli_query($con,$sql3);
