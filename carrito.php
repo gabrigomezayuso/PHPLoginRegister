@@ -3,12 +3,13 @@ require_once("control/controlSession.php");
 include 'config/config.php';
 $myusername = $_SESSION["user_signin"];
 
-    $id = $_POST['product'];
-    $cantidad = 0;
+    $cantidad = 1;
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $id = $_POST['product'];
+
         // username and password sent from form 
-        $consulta = mysqli_query($con, "INSERT INTO `carrito_$myusername` evento_id VALUES ('',$id,'$cantidad')");
+        $consulta = mysqli_query($con, "INSERT INTO `carrito_$myusername`  (`evento_id`, `cantidad`) VALUES ( $id,'$cantidad')");
         if (!$consulta) {
           echo "Error Consulta";
         } else {
@@ -106,7 +107,7 @@ $myusername = $_SESSION["user_signin"];
 
   <button onclick="window.location.href=''" class="form-inline butIzq fas fa-home bottom-icon-actived"></button>
   <button onclick="window.location.href='/search.php'" class="form-inline butIzq fas fa-search bottom-icon"></button>
-  <a class="navbar-brand mx-auto" href="index.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
+  <a class="navbar-brand mx-auto" href="index.php"><img src="dist/img/logo.png" width="100" class="d-inline-block align-top" alt=""></a></a>
   <button onclick="window.location.href='/entradas.php'" class="form-inline butDer fas fa-ticket-alt bottom-icon"></button>
   <button onclick="window.location.href='/profile.php'" class="form-inline butDer fas fa-user bottom-icon"></button>
 </nav>
