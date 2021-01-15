@@ -176,6 +176,9 @@ if(!isset($_POST["ASC"])&&!isset($_POST["DESC"])){
 
   </div>
 
+<br>
+<br>
+<br>
   <nav id="topNav" class="navbar fixed-bottom navbar-toggleable-sm navbar-inverse bg-inverse">
 
     <button onclick="window.location.href=''" class="form-inline butIzq fas fa-home bottom-icon-actived"></button>

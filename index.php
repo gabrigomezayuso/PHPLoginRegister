@@ -12,7 +12,7 @@ header( "refresh:1;url=inicio.php" );
 
   <title>Clickfy</title>
   
-  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="dist/css/bootstrap.css">
   <link rel="stylesheet" href="dist/css/inicio.css">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
