@@ -93,6 +93,7 @@ if (!$ejecutarConsulta) {
                                 <br>
 
                                 <form action="carrito.php" method="post">
+                                <input type="number" name="cantidad" class="form-control" placeholder="Cantidad" required   min=0>
                                 <p class="text-center caract"><strong>Entrada</strong> ' . $fila[4] . ' €</p>';
                 $fila = mysqli_fetch_array($ejecutarConsulta);
               }

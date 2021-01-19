@@ -2,6 +2,7 @@
 require_once("control/controlSession.php");
 include 'config/config.php';
 $myusername = $_SESSION["user_signin"];
+$precioT=0;
 // if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 //   $id = $_POST['product'];
@@ -29,18 +30,15 @@ $myusername = $_SESSION["user_signin"];
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <script>
-
-    $(document).ready(function(){
-        $("#cantidad").keyup(function(){
-            // Getting the current value of textarea
-            var currentText = $(this).val();
-            
-            // Setting the Div content
-            $("#answer").text(currentText);
-        });
-    });​
-            </script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script> 
+<script type="text/javascript"> 
+	$('document').ready(function(){ 
+		$('#myForm').ajaxForm( { 
+			success: function() {  
+			}  
+		});  
+	}); 
+</script> 
   <title>Bienvenido/a! <?php echo $myusername ?></title>
 </head>
 
@@ -48,29 +46,24 @@ $myusername = $_SESSION["user_signin"];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $id = $_POST['product'];
-    $query = $mysqli->query("SELECT c.evento_id, c.cantidad, e.nombre, e.precio_entrada FROM `carrito_$myusername` c, eventos e WHERE c.evento_id = e.id_evento");
-    
-    while ($valores = mysqli_fetch_array($query)) {
+    $cantidad = $_POST['cantidad'];
+    $consulta = mysqli_query($con, "INSERT INTO `carrito_$myusername`  (`evento_id`, `cantidad`) VALUES ( $id,$cantidad)");
 
-    if($id==$valores[0]){
-      $cantidad=1+$valores[1];
-      $consulta = mysqli_query($con, "UPDATE `carrito_$myusername` SET `cantidad` = '$cantidad' WHERE `carrito_$myusername`.`order_id` = $id");
-    }
-    
-    else{
-      $consulta = mysqli_query($con, "INSERT INTO `carrito_$myusername`  (`evento_id`, `cantidad`) VALUES ( $id,'1')");
       if (!$consulta) {
-        echo '
-        <script type="text/javascript">
-          $(document).ready(function(){
-              swal({
-              position: "top-end",
-              type: "error",
-              title: "Este producto ya esta añadido",
-              showConfirmButton: false,
-            })
-          });
-        </script>';
+        // $cantidad=$valores[1];
+        // echo $cantidad;
+        // $cantidad2=$cantidad+1;
+        // $consulta = mysqli_query($con, "UPDATE `carrito_$myusername` SET `cantidad` = '$cantidad2' WHERE `carrito_$myusername` `order_id` = $id");        echo '
+        // <script type="text/javascript">
+        //   $(document).ready(function(){
+        //       swal({
+        //       position: "top-end",
+        //       type: "error",
+        //       title: "Este producto ya esta añadido",
+        //       showConfirmButton: false,
+        //     })
+        //   });
+        // </script>';
       } else {
         echo '
         <script type="text/javascript">
@@ -86,9 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: /carrito.php");
       }
     }
-
-    }
-  }
 ?>
 
 
@@ -112,23 +102,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <th>Nombre</th>
       <th>Cantidad</th>
       <th>Precio</th>
+      <th>Actualizar</th>
       <th>Borrar</th>
     </tr>
   </thead>
+
   <tbody>
       <?php
         $query = $mysqli->query("SELECT c.evento_id, c.cantidad, e.nombre, e.precio_entrada FROM `carrito_$myusername` c, eventos e WHERE c.evento_id = e.id_evento");
         while ($valores = mysqli_fetch_array($query)) {
+
         $precioT = $precioT + $valores[1] * $valores[3];
         echo '
         <tr>
-            <td>' . $valores[2] . '</td>
-            <td><input type="number" class="form-control text-center" value="' . $valores[1] . '"  min=0 name="cantidad" id="cantidad"></td>
-            <td><input type="number" class="form-control text-center" value="' . $valores[3] . '" name="precio" id="precio" readonly></td>
+            <td>
+            ' . $valores[2] . '
+            </td>
+
+
+            <td>
+            <form action="cantidad.php" method="POST" id="myForm">
+            <input type="number" class="form-control text-center" value="' . $valores[1] . '"  min=0 name="cantidad2" id="cantidad2">
+            </td>
+
+
+            <td>
+            <input type="sumbit" class="form-control text-center sumbit" value="' . $valores[3] . '" name="" id="" readonly>
+            </td>
+
+
+            <td>  
+              <button type="submit" class="btn btn-success " name="btnAct" value="' . $valores[0] . '">
+                <span class="icon text-white-50">
+                    <i class="fas fa-sync"></i>
+                </span>
+              </button>
+              </form>
+            </td>
+
 
             <td>
             <form action="borrar_producto_carrito.php" method="post">
-            <button type="submit" class="btn btn-danger " name="btnBorrar" value="' . $valores[0] . '">
+            <button type="submit" class="btn btn-danger " name="product" value="' . $valores[0] . '">
             <span class="icon text-white-50">
                 <i class="fas fa-trash"></i>
                 </span>
@@ -159,5 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 </body>
+
+
 
 </html>

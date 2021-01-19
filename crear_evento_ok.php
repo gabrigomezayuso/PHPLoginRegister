@@ -42,7 +42,8 @@ include 'config/config.php';
 
 
                     //realizamos la conexión
-                    $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);
+                    include 'config/config.php';
+                    
                     if(!$con)
                     {
                         die("Con se ha podido realizar la conexión: ". mysqli_connect_error() . "<br>");
@@ -55,7 +56,7 @@ include 'config/config.php';
                     }
 
                     $consulta=mysqli_query($con,"insert into eventos values 
-                    ('$foto','$nombre','$fecha','$edad','$precio','$artista','$animacion','null')");
+                    ('$foto','$nombre','$fecha','$edad','$precio','$artista','$animacion','Lleida',1,null)");
 
                     if(!$consulta)
                     {
