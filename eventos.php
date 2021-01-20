@@ -133,7 +133,7 @@ $tipoUsuario=$_SESSION["rol"];
                                     <td>' . $valores[4] . '</td>
                                     <td>
                                     <form action="modificar_producto.php" method="post">
-                                    <button type="submit" class="btn btn-success" name="product" value="' . $valores[0] . '">
+                                    <button type="submit" class="btn btn-success" name="product" value="' . $valores[9] . '">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-sync"></i>
                                         </span>
@@ -142,7 +142,7 @@ $tipoUsuario=$_SESSION["rol"];
                                     </td>
                                     <td>
                                     <form action="borrar_producto.php" method="post">
-                                    <button type="submit" class="btn btn-danger " name="product" value="' . $valores[0] . '">
+                                    <button type="submit" class="btn btn-danger " name="borrar" value="' . $valores[9] . '">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-trash"></i>
                                         </span>

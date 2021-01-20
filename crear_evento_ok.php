@@ -64,7 +64,7 @@ include 'config/config.php';
                     }
                     else
                     {
-                        header("Location: /admin.php");
+                        header("Location: /eventos.php");
 
                     }
 
