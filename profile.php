@@ -1,6 +1,6 @@
 <?php
 require_once("control/controlSession.php");
-include 'config.php';
+include 'config/config.php';
 $myusername = $_SESSION["user_signin"];
 
 if (isset($_GET['busqueda'])) {
@@ -42,7 +42,7 @@ if (isset($_GET['busqueda'])) {
   <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
   <button onclick="window.location.href=''" class="form-inline fas fa-user bottom-icon-disabled"></button>
     <a class="navbar-brand mx-auto" href="index.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
-    <button onclick="window.location.href='/logout.php'" class="form-inline fas fa-sign-out-alt bottom-icon"></button>
+    <button onclick="window.location.href='/logout.php'" class="form-inline fas fa-sign-out-alt bottom-icon">Log Out</button>
   </nav>
 </header>
 
@@ -91,16 +91,12 @@ if (isset($_GET['busqueda'])) {
                                               <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Acciones</h6>
                                               <div class="row">
                                                   <div class="col-sm-6">
-                                                  <button onclick="window.location.href=" type="button" class="btn btn-info">
+                                                  <button onclick="window.location.href="" type="button" class="btn btn-info">
                                                     <span>Editar perfil</span>
                                                   </button>
                                                   </div>
                                                   <div class="col-sm-6">
                                                   <br>
-
-                                                    <button type="button" class="btn btn-info">
-                                                      <span>Mis Consumibles</span>
-                                                    </button>
                                                   </div>
                                                   
                                               </div>
@@ -126,15 +122,13 @@ if (isset($_GET['busqueda'])) {
 
 
 
-  <nav id="topNav" class="navbar fixed-bottom navbar-toggleable-sm navbar-inverse bg-inverse">
-    <button onclick="window.location.href='/inicio.php'" class="form-inline butIzq fas fa-home bottom-icon"></button>
+      <nav id="topNav" class="navbar fixed-bottom navbar-toggleable-sm navbar-inverse bg-inverse">
+    <button onclick="window.location.href=''" class="form-inline butIzq fas fa-home bottom-icon-actived"></button>
     <button onclick="window.location.href='/search.php'" class="form-inline butIzq fas fa-search bottom-icon"></button>
     <a class="navbar-brand mx-auto" href="index.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
-    <button onclick="window.location.href='/entradas.php'" class="form-inline butDer fas fa-ticket-alt bottom-icon"></button>
-    <button onclick="window.location.href=''" class="form-inline butDer fas fa-user bottom-icon-actived"></button>
-  </form>
+    <button onclick="window.location.href='/carrito.php'" class="form-inline butDer fas fa-shopping-cart bottom-icon"></button>
+    <button onclick="window.location.href='/profile.php'" class="form-inline butDer fas fa-user bottom-icon"></button>
   </nav>
-
 
 
 </body>

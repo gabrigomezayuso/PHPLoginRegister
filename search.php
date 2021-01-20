@@ -1,7 +1,7 @@
 <?php
 require_once("control/controlSession.php");
 $myusername = $_SESSION["user_signin"];
-include 'config.php';
+include 'config/config.php';
 
 if (isset($_GET['busqueda'])) {
   $tipoBusqueda = $_GET['tipo'];
@@ -111,14 +111,12 @@ if (isset($_GET['busqueda'])) {
     </div>
   </div>
 
-  <nav id="topNav" class="navbar fixed-bottom navbar-sm navbar-inverse bg-inverse">
-
-    <button onclick="window.location.href='/inicio.php'" class="form-inline butIzq fas fa-home bottom-icon"></button>
-    <button onclick="window.location.href=''" class="form-inline butIzq fas fa-search bottom-icon-actived"></button>
+  <nav id="topNav" class="navbar fixed-bottom navbar-toggleable-sm navbar-inverse bg-inverse">
+    <button onclick="window.location.href=''" class="form-inline butIzq fas fa-home bottom-icon-actived"></button>
+    <button onclick="window.location.href='/search.php'" class="form-inline butIzq fas fa-search bottom-icon"></button>
     <a class="navbar-brand mx-auto" href="index.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
-    <button onclick="window.location.href='/entradas.php'" class="form-inline butDer fas fa-ticket-alt bottom-icon"></button>
+    <button onclick="window.location.href='/carrito.php'" class="form-inline butDer fas fa-shopping-cart bottom-icon"></button>
     <button onclick="window.location.href='/profile.php'" class="form-inline butDer fas fa-user bottom-icon"></button>
-    </form>
   </nav>
 
 
