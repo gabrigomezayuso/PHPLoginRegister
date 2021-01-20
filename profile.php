@@ -91,7 +91,14 @@ if (isset($_GET['busqueda'])) {
                                               <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Acciones</h6>
                                               <div class="row">
                                                   <div class="col-sm-6">
-                                                  <button onclick="window.location.href="" type="button" class="btn btn-info">
+                                                  <form action="editprofile.php" method="post">
+                                                    <button type="submit" class="btn btn-success" name="product" value="' . $valores[9] . '">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-sync">Editar perfil</i>
+                                                        </span>
+                                                    </button>
+                                                  </form>
+                                                  <button onclick="window.location.href="editprofile.php" type="button" class="btn btn-info">
                                                     <span>Editar perfil</span>
                                                   </button>
                                                   </div>

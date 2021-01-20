@@ -75,11 +75,7 @@
               $nombrea = $use['avatar'];
             }
 
-            $sql = mysql_query("UPDATE usuarios SET
-            first_name = '$firstname', last_name ='$lastname', 
-            mail = '$mail', username = '$username',
-            phone = '$mobilenumber', password = '$password',
-            rol_id = '2', foto_perfil = '$destino' WHERE username = '$myusername'");
+            $sql = mysqli_query($con,"UPDATE usuarios SET first_name = '$firstname', last_name ='$lastname',  mail = '$mail', username = '$username', phone = '$mobilenumber', password = '$password', rol_id = '2', foto_perfil = '$destino' WHERE username = '$myusername'");
 
             if($sql) {echo "<script type='text/javascript'>window.location='profile.php?id=$id';</script>";}
 
