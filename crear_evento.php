@@ -3,6 +3,7 @@ require_once("control/controlSessionAdmin.php");
 include 'config/config.php';
 $myusername=$_SESSION["user_signin"];
 $tipoUsuario=$_SESSION["rol"];
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

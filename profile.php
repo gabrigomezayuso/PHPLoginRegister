@@ -42,7 +42,7 @@ if (isset($_GET['busqueda'])) {
   <nav id="topNav" class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
   <button onclick="window.location.href=''" class="form-inline fas fa-user bottom-icon-disabled"></button>
     <a class="navbar-brand mx-auto" href="index.php"><img src="https://i.imgur.com/BHfYfVP.png" width="100" class="d-inline-block align-top" alt=""></a></a>
-    <button onclick="window.location.href='/logout.php'" class="form-inline fas fa-sign-out-alt bottom-icon">Log Out</button>
+    <button data-toggle="modal" data-target="#exampleModal" class="form-inline fas fa-sign-out-alt bottom-icon">Log Out</button>
   </nav>
 </header>
 
@@ -94,13 +94,11 @@ if (isset($_GET['busqueda'])) {
                                                   <form action="editprofile.php" method="post">
                                                     <button type="submit" class="btn btn-success" name="product" value="' . $valores[9] . '">
                                                     <span class="icon text-white-50">
-                                                        <i class="fas fa-sync">Editar perfil</i>
+                                                        <i class="fas fa-sync"></i>
+                                                        Editar perfil
                                                         </span>
                                                     </button>
                                                   </form>
-                                                  <button onclick="window.location.href="editprofile.php" type="button" class="btn btn-info">
-                                                    <span>Editar perfil</span>
-                                                  </button>
                                                   </div>
                                                   <div class="col-sm-6">
                                                   <br>
@@ -136,6 +134,35 @@ if (isset($_GET['busqueda'])) {
     <button onclick="window.location.href='/carrito.php'" class="form-inline butDer fas fa-shopping-cart bottom-icon"></button>
     <button onclick="window.location.href='/profile.php'" class="form-inline butDer fas fa-user bottom-icon"></button>
   </nav>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Estas seguro que quieres salir?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <form action="logout.php">
+        <button type="submit" class="btn btn-danger">Cerrar session</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </body>

@@ -200,10 +200,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </select>                    
                         </div>
     
-                        <button type="submit" name="submit" id="submit" class="btn btn-outline-dark btn-lg btn-block">Modificar evento</button>
+                        <button type="submit" name="submit" id="submit" value="'.$id.'" class="btn btn-outline-dark btn-lg btn-block">Modificar evento</button>
                     </form>
                         ';
-                        $consulta = mysqli_query($con, "DELETE FROM `eventos` WHERE id_evento = '$id' ");
 
                     ?>
 

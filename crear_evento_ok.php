@@ -21,7 +21,11 @@
                 
 					<?php
 include 'config/config.php';
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_POST["submit"];
+    $consulta = mysqli_query($con, "DELETE FROM `eventos` WHERE id_evento = '$id' ");
+  
+  }
 							header("Content-Type: text/html;charset=utf-8");
 
 								//Parámetros que vienen del POST
